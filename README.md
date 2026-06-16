@@ -2,9 +2,9 @@
 This is made solely to manage my development in researching Web Development.
 
 # Timeline:
-| Day           |Date           | Tasks                                                                      | Deadline | Status      | Notes                     |
+| Day           |Date           | Tasks                                                                      | Deadline | Progress      | Notes                     |
 | ------------- | ------------- | -------------------------------------------------------------------------- | -------- | ----------- | ------------------------- |
-| Day 1         | 17/6/2026     | Learn 9 Topics of HTML, 13 Topics of CSS, 5 Topics of JavaScript           | 23:59    | 2%          | N/A                       |
+| Day 1         | 17/6/2026     | Learn 9 Topics of HTML, 13 Topics of CSS, 5 Topics of JavaScript           | 23:59    | 10%          | N/A                       |
 | Day 2         | 18/6/2026     | Learn 9 Topics of HTML, 13 Topics of CSS, 5 Topics of JavaScript           | 23:59    | Not Started | N/A                       |
 | Day 3         | 19/6/2026     | Learn 9 Topics of HTML, 13 Topics of CSS, 5 Topics of JavaScript           | 23:59    | Not Started | N/A                       |
 | Day 4         | 20/6/2026     | Learn 9 Topics of HTML, 13 Topics of CSS, 5 Topics of JavaScript           | 23:59    | Not Started | N/A                       |
