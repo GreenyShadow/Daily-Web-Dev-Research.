@@ -14,7 +14,6 @@ This is made solely to manage my development in researching Web Development.
 | Day 8         | 25/6/2026     | Learn 9 Topics of HTML, 12 Topics of CSS, 4 Topics of JavaScript           | 23:59    | Not Started | N/A                       |
 | Day 9         | 26/6/2026     | Learn 8 Topics of HTML, 12 Topics of CSS, 4 Topics of JavaScript           | 23:59    | Not Started | N/A                       |
 | Day 10        | 27/6/2026     | Learn 8 Topics of HTML, 11 Topics of CSS, 4 Topics of JavaScript           | 23:59    | Not Started | N/A                       |
-| ------------- | ------------- | -------------------------------------------------------------------------- | -------- | ----------- | ------------------------- |
 
 # Total tasks:
 | Day           | Daily Total |  Total  |
@@ -29,4 +28,4 @@ This is made solely to manage my development in researching Web Development.
 | Day 8         |      25     |         |
 | Day 9         |      24     |         |
 | Day 10        |      23     |         |
-| ------------- | ----------- |   260   |
+|               |             |   260   |
