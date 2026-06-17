@@ -28,4 +28,4 @@ This is made solely to manage my development in researching Web Development.
 | Day 8         |      25     |         |
 | Day 9         |      24     |         |
 | Day 10        |      23     |         |
-|                             |   260   |
+|               |             |   260   |
