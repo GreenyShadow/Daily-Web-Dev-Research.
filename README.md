@@ -1,6 +1,6 @@
 # Daily-Web-Dev-Research.
 This is made solely to manage my development in researching Web Development.
-
+  
 ## Timeline:
 |      Day      |      Date     | Tasks                                                                                      | Deadline |  Progress   |           Notes           |
 | :-----------: | :-----------: | :----------------------------------------------------------------------------------------: | :------: | :---------: | :-----------------------: |
@@ -33,6 +33,5 @@ This is made solely to manage my development in researching Web Development.
 | Day 5         | APIs 4-6                                           | Advanced 21-29 <br>Grid 2-5 <br>Responsive 1-8           | Advanced 9-16                |
 | Day 6         | HTML Practice & Review                             | CSS Practice & Review                                    | JavaScript Practice & Review |
 
-
-***Note that all of the topics will be learnt from top to bottom, not randomly***  
+***Note that all of the topics will be learnt from top to bottom, not randomly***<br>
 **Website:** *https://www.w3schools.com/*
