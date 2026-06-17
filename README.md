@@ -26,11 +26,11 @@ This is made solely to manage my development in researching Web Development.
 #### Details:
 |  Day          | HTML                                               | CSS                                                      | JavaScript                   |
 | :-----------: | :-----------------------------------------------:  | :------------------------------------------------------: | :--------------------------: |
-| Day 1         | Tutorials 1–20                                     | Tutorials 1–20                                           | Tutorials 1–10               |
-| Day 2         | Tutorials 21–40                                    | Tutorials 21–40                                          | Tutorials 11–20              |
-| Day 3         | Forms 1–6 <br>Graphics 1–2 <br>Media 1–3           | Tutorials 41–49 <br>Advanced 1–10                        | Tutorials 21–31              |
-| Day 4         |  Media 4–5 <br>APIs 1–3                            | Advanced 11–20 <br>Flexbox 1–4 <br>Grid 1                | Advanced 1–8                 |
-| Day 5         | APIs 4–6                                           | Advanced 21–29 <br>Grid 2–5 <br>Responsive 1–8           | Advanced 9–16                |
+| Day 1         | Tutorials 1-20                                     | Tutorials 1-20                                           | Tutorials 1-10               |
+| Day 2         | Tutorials 21-40                                    | Tutorials 21-40                                          | Tutorials 11-20              |
+| Day 3         | Forms 1-6 <br>Graphics 1-2 <br>Media 1-3           | Tutorials 41-49 <br>Advanced 1-10                        | Tutorials 21-31              |
+| Day 4         | Media 4-5 <br>APIs 1-3                             | Advanced 11-20 <br>Flexbox 1-4 <br>Grid 1                | Advanced 1-8                 |
+| Day 5         | APIs 4-6                                           | Advanced 21-29 <br>Grid 2-5 <br>Responsive 1-8           | Advanced 9-16                |
 | Day 6         | HTML Practice & Review                             | CSS Practice & Review                                    | JavaScript Practice & Review |
 
 
