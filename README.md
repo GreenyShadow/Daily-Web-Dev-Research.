@@ -2,14 +2,14 @@
 This is made solely to manage my development in researching Web Development.
   
 ## Timeline:
-|      Day      |      Date     | Tasks                                                                                      | Deadline |  Progress   |           Notes           |
-| :-----------: | :-----------: | :----------------------------------------------------------------------------------------: | :------: | :---------: | :-----------------------: |
-| Day 1         | 17/6/2026     | Learn 20 Topics of HTML<br>Learn 20 Topics of CSS<br>Learn 10 Topics of JavaScript         | 23:59    | 36%         | N/A                       |
-| Day 2         | 18/6/2026     | Learn 20 Topics of HTML<br>Learn 20 Topics of CSS<br>Learn 10 Topics of JavaScript         | 23:59    | Not Started | N/A                       |
-| Day 3         | 19/6/2026     | Learn 11 Topics of HTML<br>Learn 19 Topics of CSS<br>Learn 11 Topics of JavaScript         | 23:59    | Not Started | N/A                       |
-| Day 4         | 20/6/2026     | Learn 5 Topics of HTML<br>Learn 15 Topics of CSS<br>Learn 8 Topics of JavaScript           | 23:59    | Not Started | N/A                       |
-| Day 5         | 21/6/2026     | Learn 3 Topics of HTML<br>Learn 21 Topics of CSS<br>Learn 8 Topics of JavaScript           | 23:59    | Not Started | N/A                       |
-| Day 6         | 22/6/2026     | Revision of all                                                                            | 23:59    | Not Started | N/A                       |
+|      Day      |      Date     | Tasks                                                                                      | Deadline |  Progress   |           Notes            |
+| :-----------: | :-----------: | :----------------------------------------------------------------------------------------: | :------: | :---------: | :------------------------: |
+| Day 1         | 17/6/2026     | Learn 20 Topics of HTML<br>Learn 20 Topics of CSS<br>Learn 10 Topics of JavaScript         | 23:59    | 36%         | Unfinished<br>Move to Day 2|
+| Day 2         | 18/6/2026     | Learn 20 Topics of HTML<br>Learn 20 Topics of CSS<br>Learn 10 Topics of JavaScript         | 23:59    | Not Started | N/A                        |
+| Day 3         | 19/6/2026     | Learn 11 Topics of HTML<br>Learn 19 Topics of CSS<br>Learn 11 Topics of JavaScript         | 23:59    | Not Started | N/A                        |
+| Day 4         | 20/6/2026     | Learn 5 Topics of HTML<br>Learn 15 Topics of CSS<br>Learn 8 Topics of JavaScript           | 23:59    | Not Started | N/A                        |
+| Day 5         | 21/6/2026     | Learn 3 Topics of HTML<br>Learn 21 Topics of CSS<br>Learn 8 Topics of JavaScript           | 23:59    | Not Started | N/A                        |
+| Day 6         | 22/6/2026     | Revision of all                                                                            | 23:59    | Not Started | N/A                        |
 
 
 ### Total tasks:
