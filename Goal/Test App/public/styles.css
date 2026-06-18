@@ -1,0 +1,11 @@
+body{ font-family: system-ui,Segoe UI,Roboto,Arial; margin:0; padding:0; background:#f6f7fb; color:#111 }
+header{ background:#1f6feb; color:#fff; padding:16px }
+main{ display:flex; gap:20px; padding:20px }
+section{ background:#fff; padding:16px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+#form{ width:320px }
+#list{ flex:1 }
+input, textarea, select{ width:100%; padding:8px; margin:6px 0 12px 0; box-sizing:border-box }
+.buttons{ display:flex; gap:8px }
+.card{ border:1px solid #eee; padding:12px; margin-bottom:12px; border-radius:6px }
+.meta{ color:#666; font-size:0.9em }
+.actions button{ margin-right:8px }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Support Requirements</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Support Requirements</h1>
+    </header>
+    <main>
+      <section id="form">
+        <h2 id="form-title">Create Requirement</h2>
+        <input id="req-id" type="hidden" />
+        <label>Title</label>
+        <input id="title" />
+        <label>Description</label>
+        <textarea id="description"></textarea>
+        <label>Assignee</label>
+        <input id="assignee" />
+        <label>Status</label>
+        <select id="status">
+          <option>Open</option>
+          <option>In Progress</option>
+          <option>Resolved</option>
+          <option>Closed</option>
+        </select>
+        <div class="buttons">
+          <button id="save">Save</button>
+          <button id="cancel">Cancel</button>
+        </div>
+      </section>
+
+      <section id="list">
+        <h2>Requirements</h2>
+        <div id="items"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
