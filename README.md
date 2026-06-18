@@ -13,15 +13,15 @@ This is made solely to manage my development in researching Web Development.
 
 
 ### Total tasks:
-| Day           | Daily Total |  Total  |
+| Day           |    Daily    |  Total  |
 | :-----------: | :---------: | :-----: |
-| Day 1         |      13     |         |
-| Day 2         |      87     |         |
+| Day 1         |      13     |    13   |
+| Day 2         |      87     |    31   |
 | Day 3         |      41     |         |
 | Day 4         |      28     |         |
 | Day 5         |      32     |         |
 | Day 6         |      --     |         |
-|               |             |   201   |
+| Total         |      201    |    44   |
 
 #### Details (Supposed-to-be):
 |  Day          | HTML                                               | CSS                                                      | JavaScript                   |
