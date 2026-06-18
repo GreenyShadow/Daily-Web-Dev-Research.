@@ -23,7 +23,7 @@ This is made solely to manage my development in researching Web Development.
 | Day 6         |      --     |         |
 |               |             |   201   |
 
-#### Details:
+#### Details (Supposed-to-be):
 |  Day          | HTML                                               | CSS                                                      | JavaScript                   |
 | :-----------: | :-----------------------------------------------:  | :------------------------------------------------------: | :--------------------------: |
 | Day 1         | Tutorials 1-20                                     | Tutorials 1-20                                           | Tutorials 1-10               |
