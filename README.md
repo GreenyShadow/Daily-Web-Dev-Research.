@@ -6,7 +6,7 @@ This is made solely to manage my development in researching Web Development.
 | :-----------: | :-----------: | :----------------------------------------------------------------------------------------: | :------: | :---------: | :------------------------: |
 | Day 1         | 17/6/2026     | Learn 9 Topics of HTML<br>Learn 2 Topics of CSS<br>Learn 2 Topics of JavaScript            | 23:59    | 100%        | Move most to Day 2         |
 | Day 2         | 18/6/2026     | Learn 31 Topics of HTML<br>Learn 38 Topics of CSS<br>Learn 18 Topics of JavaScript         | 23:59    | 100%        | N/A                        |
-| Day 3         | 19/6/2026     | Learn 11 Topics of HTML<br>Learn 19 Topics of CSS<br>Learn 11 Topics of JavaScript         | 23:59    | 48%         | N/A                        |
+| Day 3         | 19/6/2026     | Learn 11 Topics of HTML<br>Learn 19 Topics of CSS<br>Learn 11 Topics of JavaScript         | 23:59    | 63%         | N/A                        |
 | Day 4         | 20/6/2026     | Learn 5 Topics of HTML<br>Learn 15 Topics of CSS<br>Learn 8 Topics of JavaScript           | 23:59    | Not Started | N/A                        |
 | Day 5         | 21/6/2026     | Learn 3 Topics of HTML<br>Learn 21 Topics of CSS<br>Learn 8 Topics of JavaScript           | 23:59    | Not Started | N/A                        |
 | Day 6         | 22/6/2026     | Revision of all                                                                            | 23:59    | Not Started | N/A                        |
@@ -17,11 +17,11 @@ This is made solely to manage my development in researching Web Development.
 | :-----------: | :---------: | :-----: |
 | Day 1         |      13     |    13   |
 | Day 2         |      87     |    87   |
-| Day 3         |      41     |    20   |
+| Day 3         |      41     |    26   |
 | Day 4         |      28     |         |
 | Day 5         |      32     |         |
 | Day 6         |      --     |         |
-| Total         |      201    |    120  |
+| Total         |      201    |    126  |
 
 #### Details (Supposed-to-be):
 |  Day          | HTML                                               | CSS                                                      | JavaScript                   |
