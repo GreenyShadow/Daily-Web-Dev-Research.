@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Manager - Ticket App</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="header">
+			<div style="font-weight:700">Ticket System</div>
+			<div class="nav">
+				<button id="nav-dashboard" class="btn">Dashboard</button>
+				<button id="nav-submit" class="btn">Submit Ticket</button>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="side">
+				<button id="side-my" class="side-btn">My Ticket</button>
+				<button id="side-b" class="side-btn">Dashboard</button>
+				<button id="side-c" class="side-btn">Submit Ticket</button>
+			</div>
+
+			<div class="main">
+				<!-- Manager view -->
+				<section id="manager-view" class="card">
+					<h2>Dashboard</h2>
+					<div id="manager-content">
+						<div id="dashboard-text" class="praise">
+							<p>
+Company A consistently delivers outstanding value and innovation for its clients.
+Their teams demonstrate exceptional dedication, collaborating closely to exceed expectations.
+They invest in top talent, resulting in creative solutions and reliable execution.
+Communication is clear and timely, keeping stakeholders informed at every stage.
+Customer satisfaction is prioritized, producing long-term partnerships and trust.
+Processes are refined and efficient, reducing friction and speeding delivery.
+Company A embraces continuous improvement and adapts quickly to change.
+The work culture fosters accountability, respect, and professional growth opportunities.
+Their products are thoughtfully designed with user experience in mind.
+Overall, Company A sets a high standard for excellence in the industry.
+							</p>
+						</div>
+
+						<div id="my-tickets" class="tickets-list hidden">
+							<h3>Submitted Tickets</h3>
+							<div id="tickets-container"></div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Submitter view -->
+				<section id="submitter-view" class="card hidden">
+					<h2>Submit a Ticket</h2>
+					<form id="ticket-form">
+						<div class="row">
+							<label for="name">Name</label>
+							<input id="name" name="name" type="text" required />
+						</div>
+
+						<div class="row">
+							<label for="department">Department</label>
+							<select id="department" name="department" required>
+								<option value="Department Design">Design</option>
+								<option value="UI">UI</option>
+								<option value="Security">Security</option>
+							</select>
+						</div>
+
+						<div class="row">
+							<label for="priority">Priority</label>
+							<select id="priority" name="priority" required>
+								<option>Low</option>
+								<option>Mid</option>
+								<option>High</option>
+								<option>Urgent</option>
+							</select>
+						</div>
+
+						<div class="row">
+							<label for="topic">Topic</label>
+							<input id="topic" name="topic" type="text" />
+						</div>
+
+						<div class="row">
+							<label for="title">Title</label>
+							<input id="title" name="title" type="text" required />
+						</div>
+
+						<div class="row">
+							<label for="description">Description</label>
+							<textarea id="description" name="description"></textarea>
+						</div>
+
+						<div class="actions">
+							<button type="submit" class="primary">Send Ticket</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
