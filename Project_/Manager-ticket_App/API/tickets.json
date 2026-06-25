@@ -8,7 +8,7 @@
     "title": "Bug report",
     "description": "Example issue",
     "createdAt": "2026-06-25T01:39:36.780Z",
-    "status": "pending"
+    "status": "accepted"
   },
   {
     "id": "Yl6bhsB85wvL",
@@ -19,6 +19,6 @@
     "title": "TEST",
     "description": "YES TEST",
     "createdAt": "2026-06-25T01:53:39.876Z",
-    "status": "pending"
+    "status": "denied"
   }
 ]
