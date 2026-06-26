@@ -21,7 +21,7 @@ This is made solely to manage my development in researching Web Development.
 | Day 4         |      28     |    28   |
 | Day 5         |      32     |    32   |
 | Day 6         |      --     |         |
-| Total         |      201    |    131  |
+| Total         |      201    |    201  |
 
 #### Details (Supposed-to-be):
 |  Day          | HTML                                               | CSS                                                      | JavaScript                   |
