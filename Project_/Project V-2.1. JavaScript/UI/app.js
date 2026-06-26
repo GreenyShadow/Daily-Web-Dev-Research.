@@ -218,6 +218,53 @@ function updateAllTimers(){
 // start interval
 setInterval(updateAllTimers, 1000);
 
+/*
+=====================================================================
+BARREL-ROLL EFFECT (disabled)
+
+The barrel-roll implementation is included below but wrapped in this
+comment block so it will NOT run. To enable the effect, delete the
+opening "/*" and closing "" markers around this section.
+
+Notes:
+- The CSS for the animation lives in style.css (.barrel-roll).
+- Enabling this will run the roll once per session on page load.
+=====================================================================
+
+// Barrel roll effect: play a short, non-repeating full-page spin on first visit in this session
+function doBarrelRoll(duration = 1200){
+	try{
+		// apply class to root element so CSS handles the animation
+		const root = document.documentElement;
+		root.classList.add('barrel-roll');
+		// disable pointer events during the roll to avoid accidental clicks
+		root.style.pointerEvents = 'none';
+
+		// listen for animationend to clean up (handles interrupts / pauses)
+		const cleanup = () => {
+			root.classList.remove('barrel-roll');
+			root.style.pointerEvents = '';
+			root.removeEventListener('animationend', cleanup);
+			root.removeEventListener('animationcancel', cleanup);
+		};
+		root.addEventListener('animationend', cleanup);
+		root.addEventListener('animationcancel', cleanup);
+		// fallback cleanup in case events don't fire
+		setTimeout(cleanup, duration + 200);
+	}catch(e){ /* ignore in older browsers  }
+}
+
+// Play once per session to avoid annoying repeated spins
+try{
+	if(!sessionStorage.getItem('barrelRollSeen')){
+		// run slightly after load so the header renders before the spin
+		window.addEventListener('load', ()=> doBarrelRoll(1200));
+		sessionStorage.setItem('barrelRollSeen','1');
+	}
+}catch(e){ /* sessionStorage may be unavailable  }
+
+*/
+
 function escapeHtml(str){ if(!str) return ''; return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
 // Form handling
