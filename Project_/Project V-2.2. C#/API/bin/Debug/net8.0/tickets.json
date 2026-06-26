@@ -1,0 +1,46 @@
+[
+  {
+    "id": "Zbb5P2yc3qsB",
+    "name": "Alice",
+    "department": "UI",
+    "priority": "High",
+    "topic": "",
+    "title": "Bug report",
+    "description": "Example issue",
+    "createdAt": "2026-06-25T01:39:36.780Z",
+    "status": "accepted"
+  },
+  {
+    "id": "Yl6bhsB85wvL",
+    "name": "THIS IS A TEST",
+    "department": "Department Design",
+    "priority": "Urgent",
+    "topic": "TESTING",
+    "title": "TEST",
+    "description": "YES TEST",
+    "createdAt": "2026-06-25T01:53:39.876Z",
+    "status": "denied"
+  },
+  {
+    "id": "NcLneM6gRFTC",
+    "name": "API testing",
+    "department": "Security",
+    "priority": "High",
+    "topic": "",
+    "title": "API Test",
+    "description": "This is just a test for the API, this will be recorded and stored in a cloud storage.",
+    "createdAt": "2026-06-26T01:09:43.108Z",
+    "status": ""
+  },
+  {
+    "id": "PnunoVOTa9NB",
+    "name": "Ding",
+    "department": "Security",
+    "priority": "Low",
+    "topic": "",
+    "title": "EEF",
+    "description": "EFFFE",
+    "createdAt": "2026-06-26T01:54:41.2752835Z",
+    "status": "pending"
+  }
+]

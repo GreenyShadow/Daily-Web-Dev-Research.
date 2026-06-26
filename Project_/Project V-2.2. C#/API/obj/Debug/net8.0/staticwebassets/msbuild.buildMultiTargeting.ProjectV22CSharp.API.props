@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ProjectV22CSharp.API.props" />
+</Project>
