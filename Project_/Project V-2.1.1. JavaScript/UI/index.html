@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ticket System</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">🎫 Ticket System</div>
+
+    <nav>
+        <button data-view="dashboard">Dashboard</button>
+        <button data-view="submit">Submit Ticket</button>
+        <button data-view="tickets">My Tickets</button>
+    </nav>
+</header>
+
+<main class="layout">
+
+    <section id="dashboard" class="card">
+        <h2>Dashboard</h2>
+        <p>Track and manage tickets in one place.</p>
+
+        <div id="stats"></div>
+    </section>
+
+    <section id="submit" class="card hidden">
+        <h2>Create Ticket</h2>
+
+        <form id="ticket-form">
+
+            <input
+                name="name"
+                placeholder="Your name"
+                required
+            >
+
+            <input
+                name="title"
+                placeholder="Ticket title"
+                required
+            >
+
+            <input
+                name="topic"
+                placeholder="Topic"
+            >
+
+            <select name="department">
+                <option>Design</option>
+                <option>UI</option>
+                <option>Security</option>
+                <option>Support</option>
+            </select>
+
+            <select name="priority">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option>Urgent</option>
+            </select>
+
+            <textarea
+                name="description"
+                placeholder="Describe your issue..."
+            ></textarea>
+
+            <button type="submit">
+                Submit Ticket
+            </button>
+
+        </form>
+    </section>
+
+    <section id="tickets" class="card hidden">
+
+        <h2>Tickets</h2>
+
+        <div id="ticket-list"></div>
+
+    </section>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>

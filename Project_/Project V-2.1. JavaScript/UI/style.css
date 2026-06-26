@@ -54,8 +54,10 @@ body{margin:0;background:var(--bg);color:var(--text);font-size:1rem;line-height:
 .header .nav{display:flex;gap:10px;flex-wrap:wrap}
 .header > div:first-child{font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:700}
 .btn{background:rgba(255,255,255,0.15);border:0;color:#fff;padding:10px 14px;border-radius:6px;cursor:pointer;font-size:0.95rem;transition:background-color 220ms ease, color 220ms ease, box-shadow 220ms ease}
+button, .btn, .side-btn, .primary{touch-action: manipulation;}
 
-.header{position:sticky;overflow:hidden}
+.header{position:sticky;overflow:hidden;isolation:isolate;z-index:0;}
+.header > *{position:relative;z-index:1;}
 .header > div:first-child{
 	/* show a light, shimmering text using background-clip */
 	color:transparent;
@@ -98,12 +100,13 @@ body{margin:0;background:var(--bg);color:var(--text);font-size:1rem;line-height:
 	left: 0;
 	width: 40%;
 	height: 160%;
-	background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
-	transform: skewX(-20deg) translateX(-200%);
-	filter: blur(8px);
+	background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
+	transform: skewX(-20deg) translate3d(-200%,0,0);
+	filter: blur(4px);
 	opacity: 0;
 	pointer-events: none;
 	will-change: transform, opacity;
+	z-index:0;
 	animation: header-shine 4.2s linear infinite;
 }
 

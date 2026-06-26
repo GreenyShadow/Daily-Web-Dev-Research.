@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Manager - Ticket App</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="header">
+			<div style="font-weight:700">Ticket System</div>
+			<div class="nav">
+				<button id="nav-dashboard" class="btn">Dashboard</button>
+				<button id="nav-submit" class="btn">Submit Ticket</button>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="side">
+				<button id="side-my" class="side-btn">My Ticket</button>
+				<button id="side-b" class="side-btn">Dashboard</button>
+				<button id="side-c" class="side-btn">Submit Ticket</button>
+			</div>
+
+			<div class="main">
+				<!-- Manager view -->
+				<section id="manager-view" class="card">
+					<h2 id="manager-heading">Dashboard</h2>
+					<div id="manager-content">
+						<!-- My Ticket view: summary + chart + ticket list -->
+						<div id="my-ticket-view" class="hidden">
+							<div id="dashboard-text" class="praise"></div>
+
+							<!-- Ticket stats wheel -->
+							<div id="ticket-chart-section" class="chart-section">
+								<div class="chart-wrap">
+									<svg id="ticket-donut" viewBox="0 0 200 200" width="200" height="200" aria-label="Ticket status chart">
+										<circle cx="100" cy="100" r="80" fill="none" stroke="#e9eef7" stroke-width="28"/>
+										<circle id="donut-sent"     cx="100" cy="100" r="80" fill="none" stroke="#0b69ff" stroke-width="28" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+										<circle id="donut-accepted" cx="100" cy="100" r="80" fill="none" stroke="#16a34a" stroke-width="28" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+										<circle id="donut-denied"   cx="100" cy="100" r="80" fill="none" stroke="#ef4444" stroke-width="28" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+										<text id="donut-center-num"  x="100" y="96"  text-anchor="middle" font-size="28" font-weight="700" fill="#111">0</text>
+										<text id="donut-center-label" x="100" y="114" text-anchor="middle" font-size="11" fill="#666">total</text>
+									</svg>
+									<ul class="chart-legend">
+										<li><span class="legend-dot" style="background:#0b69ff"></span><span class="legend-label">Sent</span><span id="legend-sent" class="legend-val">0</span></li>
+										<li><span class="legend-dot" style="background:#16a34a"></span><span class="legend-label">Accepted</span><span id="legend-accepted" class="legend-val">0</span></li>
+										<li><span class="legend-dot" style="background:#ef4444"></span><span class="legend-label">Denied</span><span id="legend-denied" class="legend-val">0</span></li>
+									</ul>
+								</div>
+							</div>
+
+							<div id="my-tickets" class="tickets-list">
+								<h3>Submitted Tickets</h3>
+								<div id="tickets-container"></div>
+							</div>
+						</div>
+
+						<!-- Dashboard view: plain, no summary, no chart -->
+						<div id="dashboard-view">
+							<p class="dashboard-placeholder">Select <strong>My Ticket</strong> from the sidebar to view your submitted tickets and stats.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Submitter view -->
+				<section id="submitter-view" class="card hidden">
+					<h2>Submit a Ticket</h2>
+					<form id="ticket-form">
+						<div class="row">
+							<label for="name">Name</label>
+							<input id="name" name="name" type="text" required />
+						</div>
+
+						<div class="row">
+							<label for="department">Department</label>
+							<select id="department" name="department" required>
+								<option value="Department Design">Design</option>
+								<option value="UI">UI</option>
+								<option value="Security">Security</option>
+							</select>
+						</div>
+
+						<div class="row">
+							<label for="priority">Priority</label>
+							<select id="priority" name="priority" required>
+								<option>Low</option>
+								<option>Mid</option>
+								<option>High</option>
+								<option>Urgent</option>
+							</select>
+						</div>
+
+						<div class="row">
+							<label for="topic">Topic</label>
+							<input id="topic" name="topic" type="text" />
+						</div>
+
+						<div class="row">
+							<label for="title">Title</label>
+							<input id="title" name="title" type="text" required />
+						</div>
+
+						<div class="row">
+							<label for="description">Description</label>
+							<textarea id="description" name="description"></textarea>
+						</div>
+
+						<div class="actions">
+							<button type="submit" class="primary">Send Ticket</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>

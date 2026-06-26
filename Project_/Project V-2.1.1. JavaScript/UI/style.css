@@ -1,0 +1,157 @@
+:root{
+    --bg:#f4f6f8;
+    --card:#ffffff;
+    --primary:#0b69ff;
+    --border:#dddddd;
+    --text:#222;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+.hidden{
+    display:none;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:1rem 2rem;
+
+    background:var(--primary);
+    color:white;
+}
+
+.logo{
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:.5rem;
+}
+
+nav button{
+    border:none;
+    border-radius:6px;
+
+    padding:.7rem 1rem;
+
+    cursor:pointer;
+}
+
+nav button:hover{
+    opacity:.9;
+}
+
+.layout{
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:1rem;
+}
+
+.card{
+    background:var(--card);
+
+    padding:1.5rem;
+
+    margin-bottom:1rem;
+
+    border-radius:10px;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,.05);
+}
+
+.card h2{
+    margin-bottom:1rem;
+}
+
+form{
+    display:grid;
+    gap:.8rem;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+
+    padding:.8rem;
+
+    border:1px solid var(--border);
+
+    border-radius:6px;
+}
+
+textarea{
+    resize:vertical;
+    min-height:120px;
+}
+
+form button{
+    border:none;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:6px;
+
+    padding:.8rem;
+
+    cursor:pointer;
+}
+
+form button:hover{
+    opacity:.9;
+}
+
+.ticket{
+    border:1px solid var(--border);
+
+    border-radius:8px;
+
+    padding:1rem;
+
+    margin-top:.75rem;
+}
+
+.ticket-title{
+    font-weight:bold;
+    margin-bottom:.5rem;
+}
+
+.ticket-meta{
+    font-size:.85rem;
+    opacity:.7;
+
+    margin-top:.5rem;
+}
+
+@media(max-width:700px){
+
+.header{
+    flex-direction:column;
+    gap:1rem;
+}
+
+nav{
+    flex-wrap:wrap;
+}
+
+}

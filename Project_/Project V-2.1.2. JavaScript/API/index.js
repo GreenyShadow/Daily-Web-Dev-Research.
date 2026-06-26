@@ -1,0 +1,107 @@
+const express = require('express');
+const cors = require('cors');
+const fs = require('fs').promises;
+const path = require('path');
+
+const app = express();
+const dataFile = path.join(__dirname, 'tickets.json');
+const PORT = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(express.json());
+
+async function loadTickets() {
+  try {
+    const raw = await fs.readFile(dataFile, 'utf8');
+    return JSON.parse(raw || '[]');
+  } catch (error) {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  }
+}
+
+async function saveTickets(tickets) {
+  await fs.writeFile(dataFile, JSON.stringify(tickets, null, 2), 'utf8');
+}
+
+function generateId(length = 10) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let id = '';
+  for (let i = 0; i < length; i++) {
+    id += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return id;
+}
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', message: 'Ticket API is running' });
+});
+
+app.get('/tickets', async (req, res) => {
+  const tickets = await loadTickets();
+  res.json(tickets);
+});
+
+app.get('/tickets/:id', async (req, res) => {
+  const tickets = await loadTickets();
+  const ticket = tickets.find((item) => item.id === req.params.id);
+  if (!ticket) return res.status(404).json({ error: 'Ticket not found' });
+  res.json(ticket);
+});
+
+app.post('/tickets', async (req, res) => {
+  const { name, department, priority, topic, title, description } = req.body;
+  if (!name || !department || !priority || !title) {
+    return res.status(400).json({ error: 'Missing required fields: name, department, priority, title' });
+  }
+
+  const tickets = await loadTickets();
+  const ticket = {
+    id: generateId(12),
+    name: String(name).trim(),
+    department: String(department).trim(),
+    priority: String(priority).trim(),
+    topic: String(topic || '').trim(),
+    title: String(title).trim(),
+    description: String(description || '').trim(),
+    createdAt: new Date().toISOString(),
+    status: 'pending',
+  };
+
+  tickets.push(ticket);
+  await saveTickets(tickets);
+  res.status(201).json(ticket);
+});
+
+app.patch('/tickets/:id', async (req, res) => {
+  const updates = req.body;
+  const tickets = await loadTickets();
+  const index = tickets.findIndex((item) => item.id === req.params.id);
+  if (index === -1) return res.status(404).json({ error: 'Ticket not found' });
+
+  const ticket = tickets[index];
+  const allowed = ['status', 'priority', 'topic', 'title', 'description', 'department', 'name'];
+  for (const key of Object.keys(updates)) {
+    if (allowed.includes(key)) {
+      ticket[key] = updates[key];
+    }
+  }
+
+  tickets[index] = ticket;
+  await saveTickets(tickets);
+  res.json(ticket);
+});
+
+app.delete('/tickets/:id', async (req, res) => {
+  const tickets = await loadTickets();
+  const filtered = tickets.filter((item) => item.id !== req.params.id);
+  if (filtered.length === tickets.length) return res.status(404).json({ error: 'Ticket not found' });
+
+  await saveTickets(filtered);
+  res.status(204).end();
+});
+
+app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Ticket API listening at http://localhost:${PORT}`);
+});
