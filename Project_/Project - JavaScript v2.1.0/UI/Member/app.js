@@ -21,7 +21,7 @@ const sideB = qs('#side-b');
 const sideC = qs('#side-c');
 const navLogout = qs('#nav-logout');
 
-// ── Dashboard summary generator (no AI) ──────────────────────────────────────
+// ── Dashboard summary generator ──────────────────────────────────────
 // Reads all tickets from storage and builds a natural-language paragraph
 // using template strings filled with real counts and labels.
 
