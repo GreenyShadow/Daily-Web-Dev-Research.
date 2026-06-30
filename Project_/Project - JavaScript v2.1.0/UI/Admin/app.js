@@ -214,7 +214,7 @@ function computeCounts(tickets){
 	const total = tickets.length;
 	const accepted = tickets.filter(tk => tk.status === 'accepted').length;
 	const denied   = tickets.filter(tk => tk.status === 'denied').length;
-	const expired  = tickets.filter(tk => isExpired(tk) && (!tk.status || tk.status === '')).length;
+	const expired  = tickets.filter(tk => isExpired(tk) && (!tk.status || tk.status === 'pending')).length;
 	const sent     = total - accepted - denied; // includes expired-but-unresolved
 	return { total, sent, accepted, denied, expired };
 }
