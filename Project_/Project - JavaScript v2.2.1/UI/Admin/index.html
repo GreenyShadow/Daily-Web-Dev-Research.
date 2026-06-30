@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Admin Console - Ticket Management</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="admin-shell">
+
+		<header class="admin-header">
+			<div class="brand">
+				<span class="brand-seal" aria-hidden="true">
+					<svg viewBox="0 0 40 40" width="34" height="34">
+						<circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.4"/>
+						<circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="1"/>
+						<text x="20" y="25" text-anchor="middle" font-family="'Fraunces', serif" font-size="14" fill="currentColor">A</text>
+					</svg>
+				</span>
+				<div class="brand-text">
+					<span class="brand-name">Admin Console</span>
+					<span class="brand-sub">Support Operations &amp; Review</span>
+				</div>
+			</div>
+			<div class="header-meta">
+				<div class="meta-pill" id="pending-pill">0 awaiting review</div>
+				<div class="admin-clock" id="admin-clock">—</div>
+				<button class="logout-btn" id="admin-logout">Log out</button>
+			</div>
+		</header>
+
+		<div class="admin-body">
+			<nav class="admin-rail">
+				<button class="rail-btn active" data-view="overview">
+					<span class="rail-index">I.</span> Overview
+				</button>
+				<button class="rail-btn" data-view="queue">
+					<span class="rail-index">II.</span> Ticket Queue
+				</button>
+			</nav>
+
+			<main class="admin-main">
+
+				<!-- ===================== OVERVIEW ===================== -->
+				<section id="view-overview" class="admin-view">
+					<div class="view-head">
+						<h1>Overview</h1>
+						<p class="view-sub">A standing readout of inbound requests across the organization.</p>
+					</div>
+
+					<div class="stat-row">
+						<div class="stat-card">
+							<span class="stat-label">Total Tickets</span>
+							<span class="stat-value" id="stat-total">0</span>
+						</div>
+						<div class="stat-card stat-sent">
+							<span class="stat-label">Awaiting Review</span>
+							<span class="stat-value" id="stat-sent">0</span>
+						</div>
+						<div class="stat-card stat-accepted">
+							<span class="stat-label">Accepted</span>
+							<span class="stat-value" id="stat-accepted">0</span>
+						</div>
+						<div class="stat-card stat-denied">
+							<span class="stat-label">Denied</span>
+							<span class="stat-value" id="stat-denied">0</span>
+						</div>
+						<div class="stat-card stat-expired">
+							<span class="stat-label">Expired</span>
+							<span class="stat-value" id="stat-expired">0</span>
+						</div>
+					</div>
+
+					<div class="overview-grid">
+						<div class="panel chart-panel">
+							<h2>Status Distribution</h2>
+							<div class="chart-wrap">
+								<svg id="admin-donut" viewBox="0 0 200 200" width="180" height="180" aria-label="Ticket status distribution">
+									<circle cx="100" cy="100" r="80" fill="none" stroke="#1e2540" stroke-width="20"/>
+									<circle id="adm-arc-accepted" cx="100" cy="100" r="80" fill="none" stroke-width="20" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<circle id="adm-arc-denied"   cx="100" cy="100" r="80" fill="none" stroke-width="20" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<circle id="adm-arc-expired"  cx="100" cy="100" r="80" fill="none" stroke-width="20" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<circle id="adm-arc-sent"     cx="100" cy="100" r="80" fill="none" stroke-width="20" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<text id="adm-donut-num" x="100" y="95" text-anchor="middle" font-family="'Fraunces', serif" font-size="32" font-weight="600" fill="#eef1f8">0</text>
+									<text id="adm-donut-label" x="100" y="116" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="1" fill="#8d96ad">TOTAL</text>
+								</svg>
+								<ul class="chart-legend">
+									<li><span class="legend-dot dot-sent"></span><span class="legend-label">Awaiting</span><span class="legend-val" id="legend-sent">0</span></li>
+									<li><span class="legend-dot dot-accepted"></span><span class="legend-label">Accepted</span><span class="legend-val" id="legend-accepted">0</span></li>
+									<li><span class="legend-dot dot-denied"></span><span class="legend-label">Denied</span><span class="legend-val" id="legend-denied">0</span></li>
+									<li><span class="legend-dot dot-expired"></span><span class="legend-label">Expired</span><span class="legend-val" id="legend-expired">0</span></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="panel brief-panel">
+							<h2>Daily Brief</h2>
+							<p id="admin-brief" class="brief-text">Loading…</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- ===================== QUEUE ===================== -->
+				<section id="view-queue" class="admin-view hidden">
+					<div class="view-head">
+						<h1>Ticket Queue</h1>
+						<p class="view-sub">Review each request and record a decision.</p>
+					</div>
+
+					<div class="filter-tabs" id="filter-tabs">
+						<button class="filter-tab active" data-filter="all">All<span class="tab-count" id="count-all">0</span></button>
+						<button class="filter-tab" data-filter="sent">Awaiting<span class="tab-count" id="count-sent">0</span></button>
+						<button class="filter-tab" data-filter="accepted">Accepted<span class="tab-count" id="count-accepted">0</span></button>
+						<button class="filter-tab" data-filter="denied">Denied<span class="tab-count" id="count-denied">0</span></button>
+						<button class="filter-tab" data-filter="expired">Expired<span class="tab-count" id="count-expired">0</span></button>
+					</div>
+
+					<div class="ledger" id="ledger"></div>
+				</section>
+
+			</main>
+		</div>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>
