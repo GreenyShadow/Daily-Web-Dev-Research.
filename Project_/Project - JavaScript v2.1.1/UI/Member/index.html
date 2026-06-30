@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Member Portal — Ticket System</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="mem-shell">
+
+		<header class="mem-header">
+			<div class="brand">
+				<span class="brand-mark" aria-hidden="true">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+					</svg>
+				</span>
+				<div class="brand-text">
+					<span class="brand-name">Member Portal</span>
+					<span class="brand-sub">Internal Ticket Support</span>
+				</div>
+			</div>
+			<div class="header-meta">
+				<div class="user-pill"><span class="user-dot" aria-hidden="true"></span><span id="header-username">—</span></div>
+				<button class="logout-btn" id="nav-logout">Log out</button>
+			</div>
+		</header>
+
+		<div class="mem-body">
+			<nav class="mem-rail">
+				<button class="rail-btn active" id="nav-dashboard" data-view="dashboard">
+					<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+					Dashboard
+				</button>
+				<button class="rail-btn" id="nav-submit" data-view="submit">
+					<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+					Submit Ticket
+				</button>
+				<button class="rail-btn" id="nav-mytickets" data-view="mytickets">
+					<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+					My Tickets
+				</button>
+			</nav>
+
+			<main class="mem-main">
+
+				<!-- ===================== DASHBOARD ===================== -->
+				<section id="view-dashboard" class="mem-view">
+					<div class="view-head">
+						<h1 id="dash-greeting">Welcome back</h1>
+						<p class="view-sub">Here's a quick look at the requests you've submitted.</p>
+					</div>
+
+					<div class="stat-row">
+						<div class="stat-card">
+							<span class="stat-label">My Tickets</span>
+							<span class="stat-value" id="stat-total">0</span>
+						</div>
+						<div class="stat-card stat-sent">
+							<span class="stat-label">Awaiting</span>
+							<span class="stat-value" id="stat-sent">0</span>
+						</div>
+						<div class="stat-card stat-accepted">
+							<span class="stat-label">Accepted</span>
+							<span class="stat-value" id="stat-accepted">0</span>
+						</div>
+						<div class="stat-card stat-denied">
+							<span class="stat-label">Denied</span>
+							<span class="stat-value" id="stat-denied">0</span>
+						</div>
+					</div>
+
+					<div class="overview-grid">
+						<div class="panel chart-panel">
+							<h2>Status Breakdown</h2>
+							<div class="chart-wrap">
+								<svg id="mem-donut" viewBox="0 0 200 200" width="160" height="160" aria-label="My ticket status">
+									<circle cx="100" cy="100" r="80" fill="none" stroke="#eef1f8" stroke-width="22"/>
+									<circle id="arc-accepted" cx="100" cy="100" r="80" fill="none" stroke-width="22" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<circle id="arc-denied"   cx="100" cy="100" r="80" fill="none" stroke-width="22" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<circle id="arc-sent"     cx="100" cy="100" r="80" fill="none" stroke-width="22" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<text id="donut-num" x="100" y="95" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="28" font-weight="600" fill="#16213a">0</text>
+									<text id="donut-label" x="100" y="116" text-anchor="middle" font-size="10" letter-spacing="1" fill="#8b97b3">TOTAL</text>
+								</svg>
+								<ul class="chart-legend">
+									<li><span class="legend-dot dot-sent"></span><span class="legend-label">Awaiting</span><span class="legend-val" id="legend-sent">0</span></li>
+									<li><span class="legend-dot dot-accepted"></span><span class="legend-label">Accepted</span><span class="legend-val" id="legend-accepted">0</span></li>
+									<li><span class="legend-dot dot-denied"></span><span class="legend-label">Denied</span><span class="legend-val" id="legend-denied">0</span></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="panel summary-panel">
+							<h2>Summary</h2>
+							<p id="dashboard-text" class="summary-text">Loading…</p>
+							<button class="link-btn" id="dash-new-ticket">+ Submit a new ticket</button>
+						</div>
+					</div>
+				</section>
+
+				<!-- ===================== SUBMIT ===================== -->
+				<section id="view-submit" class="mem-view hidden">
+					<div class="view-head">
+						<h1>Submit a Ticket</h1>
+						<p class="view-sub">Tell us what you need help with — your support team will pick it up shortly.</p>
+					</div>
+
+					<div class="form-card" id="form-wrapper">
+						<form id="ticket-form">
+							<div class="field">
+								<label for="name">Submitted by</label>
+								<input id="name" name="name" type="text" readonly />
+							</div>
+
+							<div class="field-row">
+								<div class="field">
+									<label for="department">Department</label>
+									<select id="department" name="department" required>
+										<option value="Design">Design</option>
+										<option value="UI">UI</option>
+										<option value="Security">Security</option>
+									</select>
+								</div>
+								<div class="field">
+									<label for="priority">Priority</label>
+									<select id="priority" name="priority" required>
+										<option>Low</option>
+										<option>Mid</option>
+										<option>High</option>
+										<option>Urgent</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="field">
+								<label for="topic">Topic <span class="optional">(optional)</span></label>
+								<input id="topic" name="topic" type="text" placeholder="e.g. Login issue, Account access" />
+							</div>
+
+							<div class="field">
+								<label for="title">Title</label>
+								<input id="title" name="title" type="text" placeholder="Short summary of the request" required />
+							</div>
+
+							<div class="field">
+								<label for="description">Description <span class="optional">(optional)</span></label>
+								<textarea id="description" name="description" rows="4" placeholder="Add any details that will help the support team"></textarea>
+							</div>
+
+							<div class="actions">
+								<button type="submit" class="submit-btn" id="submit-btn">
+									<span class="btn-label">Send Ticket</span>
+									<span class="btn-spinner hidden"></span>
+								</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="sent-banner hidden" id="sent-banner">
+						<span class="sent-icon">✓</span>
+						<div>
+							<strong>Ticket sent.</strong>
+							<span>Your request has been submitted and is now awaiting review.</span>
+						</div>
+						<button class="link-btn" id="sent-view-tickets">View my tickets →</button>
+					</div>
+				</section>
+
+				<!-- ===================== MY TICKETS ===================== -->
+				<section id="view-mytickets" class="mem-view hidden">
+					<div class="view-head">
+						<h1>My Tickets</h1>
+						<p class="view-sub">Every request you've submitted, with live status.</p>
+					</div>
+
+					<div class="filter-tabs" id="filter-tabs">
+						<button class="filter-tab active" data-filter="all">All<span class="tab-count" id="count-all">0</span></button>
+						<button class="filter-tab" data-filter="sent">Awaiting<span class="tab-count" id="count-sent">0</span></button>
+						<button class="filter-tab" data-filter="accepted">Accepted<span class="tab-count" id="count-accepted">0</span></button>
+						<button class="filter-tab" data-filter="denied">Denied<span class="tab-count" id="count-denied">0</span></button>
+						<button class="filter-tab" data-filter="expired">Expired<span class="tab-count" id="count-expired">0</span></button>
+					</div>
+
+					<div class="ticket-list" id="tickets-container"></div>
+				</section>
+
+			</main>
+		</div>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>

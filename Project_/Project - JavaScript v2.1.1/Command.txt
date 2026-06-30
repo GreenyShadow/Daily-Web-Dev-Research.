@@ -1,0 +1,6 @@
+- Open Integrated Terminal for the whole folder
+- Copy-paste these code lines:
+
+cd API
+npm install
+node index.js
