@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Agent Console — Internal Ticket Support</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="agt-shell">
+
+		<header class="agt-header">
+			<div class="brand">
+				<span class="brand-mark" aria-hidden="true">
+					<svg viewBox="0 0 40 40" width="34" height="34">
+						<circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.4"/>
+						<circle cx="20" cy="20" r="10.5" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/>
+						<circle cx="20" cy="20" r="2.2" fill="currentColor"/>
+						<line x1="20" y1="20" x2="20" y2="5.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+					</svg>
+				</span>
+				<div class="brand-text">
+					<span class="brand-name">Agent Console</span>
+					<span class="brand-sub">Dispatch Desk</span>
+				</div>
+			</div>
+			<div class="header-meta">
+				<div class="user-pill"><span class="user-dot" aria-hidden="true"></span><span id="header-username">Agent</span></div>
+				<div class="meta-pill" id="queue-pill">0 in queue</div>
+				<div class="agt-clock" id="agt-clock">—</div>
+				<button class="logout-btn" id="nav-logout">Log out</button>
+			</div>
+		</header>
+
+		<div class="agt-body">
+			<nav class="agt-rail">
+				<button class="rail-btn active" data-view="overview">
+					<span class="rail-index">I.</span> Overview
+				</button>
+				<button class="rail-btn" data-view="queue">
+					<span class="rail-index">II.</span> Queue <span class="rail-count" id="rail-queue-count">0</span>
+				</button>
+				<button class="rail-btn" data-view="mywork">
+					<span class="rail-index">III.</span> My Tickets <span class="rail-count" id="rail-mywork-count">0</span>
+				</button>
+			</nav>
+
+			<main class="agt-main">
+
+				<!-- ===================== OVERVIEW ===================== -->
+				<section id="view-overview" class="agt-view">
+					<div class="view-head">
+						<h1 id="overview-greeting">Shift overview</h1>
+						<p class="view-sub">Where the queue stands right now, and what you're carrying.</p>
+					</div>
+
+					<div class="stat-row">
+						<div class="stat-card stat-queue">
+							<span class="stat-label">Unclaimed in Queue</span>
+							<span class="stat-value" id="stat-queue">0</span>
+						</div>
+						<div class="stat-card stat-mine">
+							<span class="stat-label">Assigned to Me</span>
+							<span class="stat-value" id="stat-mine">0</span>
+						</div>
+						<div class="stat-card stat-progress">
+							<span class="stat-label">In Progress (Team)</span>
+							<span class="stat-value" id="stat-team-progress">0</span>
+						</div>
+						<div class="stat-card stat-resolved">
+							<span class="stat-label">Resolved by Me</span>
+							<span class="stat-value" id="stat-resolved">0</span>
+						</div>
+					</div>
+
+					<div class="overview-grid">
+						<div class="panel chart-panel">
+							<h2>My Ticket Breakdown</h2>
+							<div class="chart-wrap">
+								<svg id="agt-donut" viewBox="0 0 200 200" width="180" height="180" aria-label="My assigned ticket status">
+									<circle cx="100" cy="100" r="80" fill="none" stroke="#22302f" stroke-width="20"/>
+									<circle id="arc-progress" cx="100" cy="100" r="80" fill="none" stroke-width="20" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<circle id="arc-resolved" cx="100" cy="100" r="80" fill="none" stroke-width="20" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<circle id="arc-closed"   cx="100" cy="100" r="80" fill="none" stroke-width="20" stroke-dasharray="0 503" stroke-linecap="butt" transform="rotate(-90 100 100)"/>
+									<text id="donut-num" x="100" y="95" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="600" fill="#eaf4f2">0</text>
+									<text id="donut-label" x="100" y="116" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1" fill="#94a8a6">MINE</text>
+								</svg>
+								<ul class="chart-legend">
+									<li><span class="legend-dot dot-progress"></span><span class="legend-label">In progress</span><span class="legend-val" id="legend-progress">0</span></li>
+									<li><span class="legend-dot dot-resolved"></span><span class="legend-label">Resolved</span><span class="legend-val" id="legend-resolved">0</span></li>
+									<li><span class="legend-dot dot-closed"></span><span class="legend-label">Closed</span><span class="legend-val" id="legend-closed">0</span></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="panel brief-panel">
+							<h2>Shift Brief</h2>
+							<p id="agt-brief" class="brief-text">Loading…</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- ===================== QUEUE ===================== -->
+				<section id="view-queue" class="agt-view hidden">
+					<div class="view-head">
+						<h1>Ticket Queue</h1>
+						<p class="view-sub">Approved requests waiting for a support agent to pick them up.</p>
+					</div>
+
+					<div class="queue-board" id="queue-board"></div>
+				</section>
+
+				<!-- ===================== MY TICKETS ===================== -->
+				<section id="view-mywork" class="agt-view hidden">
+					<div class="view-head">
+						<h1>My Tickets</h1>
+						<p class="view-sub">Everything currently assigned to you, at every stage.</p>
+					</div>
+
+					<div class="filter-tabs" id="filter-tabs">
+						<button class="filter-tab active" data-filter="all">All<span class="tab-count" id="count-all">0</span></button>
+						<button class="filter-tab" data-filter="in_progress">In Progress<span class="tab-count" id="count-in_progress">0</span></button>
+						<button class="filter-tab" data-filter="resolved">Resolved<span class="tab-count" id="count-resolved">0</span></button>
+						<button class="filter-tab" data-filter="closed">Closed<span class="tab-count" id="count-closed">0</span></button>
+					</div>
+
+					<div class="work-list" id="work-list"></div>
+				</section>
+
+			</main>
+		</div>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>
