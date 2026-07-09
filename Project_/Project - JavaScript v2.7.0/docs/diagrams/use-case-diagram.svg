@@ -1,0 +1,159 @@
+<svg viewBox="0 0 1200 1020" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <rect x="0" y="0" width="1200" height="1020" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1f2e">Use Case Diagram</text>
+  <text x="600" y="58" text-anchor="middle" font-size="13" fill="#5e6680">Internal Support Request Management System — actors and their interactions with the ticket workflow</text>
+
+  <defs>
+    <marker id="uc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3a4256"/>
+    </marker>
+  </defs>
+
+  <!-- System boundary -->
+  <rect x="170" y="80" width="830" height="800" rx="10" fill="#fafbfc" stroke="#1a1f2e" stroke-width="1.5"/>
+  <text x="585" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1f2e">Internal Support Request Management System</text>
+
+  <!-- ===================== Actor <-> use case connector lines (drawn first, under ovals) ===================== -->
+  <g stroke="#a7adbe" stroke-width="1.2">
+    <!-- Member (90,290) -->
+    <line x1="90" y1="290" x2="450" y2="140"/>
+    <line x1="90" y1="290" x2="720" y2="140"/>
+    <line x1="90" y1="290" x2="380" y2="220"/>
+    <line x1="90" y1="290" x2="380" y2="290"/>
+    <line x1="90" y1="290" x2="380" y2="360"/>
+
+    <!-- Agent (90,580) -->
+    <line x1="90" y1="580" x2="450" y2="140"/>
+    <line x1="90" y1="580" x2="720" y2="140"/>
+    <line x1="90" y1="580" x2="380" y2="440"/>
+    <line x1="90" y1="580" x2="380" y2="510"/>
+    <line x1="90" y1="580" x2="380" y2="580"/>
+    <line x1="90" y1="580" x2="380" y2="650"/>
+    <line x1="90" y1="580" x2="380" y2="720"/>
+    <line x1="90" y1="580" x2="790" y2="440"/>
+    <line x1="90" y1="580" x2="790" y2="510"/>
+
+    <!-- Admin (90,830) -->
+    <line x1="90" y1="830" x2="450" y2="140"/>
+    <line x1="90" y1="830" x2="720" y2="140"/>
+    <line x1="90" y1="830" x2="790" y2="440"/>
+    <line x1="90" y1="830" x2="790" y2="510"/>
+    <line x1="90" y1="830" x2="790" y2="580"/>
+    <line x1="90" y1="830" x2="790" y2="650"/>
+    <line x1="90" y1="830" x2="790" y2="720"/>
+    <line x1="90" y1="830" x2="790" y2="790"/>
+  </g>
+
+  <!-- Auto-Triage engine (secondary/system actor) association -->
+  <line x1="1080" y1="650" x2="900" y2="650" stroke="#a7adbe" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- extend relationship: Run Auto-Triage -> Review Pending Request -->
+  <line x1="790" y1="623" x2="790" y2="607" stroke="#7a5fc4" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#uc-arrow)"/>
+  <text x="805" y="618" font-size="10.5" fill="#7a5fc4" font-style="italic">&#171;extend&#187;</text>
+
+  <!-- ===================== Use case ovals ===================== -->
+  <g font-size="12" fill="#1a1f2e" text-anchor="middle">
+    <!-- Shared: Login / Logout -->
+    <ellipse cx="450" cy="140" rx="110" ry="27" fill="#eef1f8" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="450" y="145" font-weight="600">Login</text>
+
+    <ellipse cx="720" cy="140" rx="110" ry="27" fill="#eef1f8" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="720" y="145" font-weight="600">Logout</text>
+
+    <!-- Member use cases (col 1) -->
+    <ellipse cx="380" cy="220" rx="110" ry="27" fill="#e9eefb" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="380" y="225" font-weight="600">Submit New Request</text>
+
+    <ellipse cx="380" cy="290" rx="110" ry="27" fill="#e9eefb" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="380" y="285" font-weight="600">Manage My Request</text>
+    <text x="380" y="299" font-size="10" fill="#5e6680">(edit / cancel while pending)</text>
+
+    <ellipse cx="380" cy="360" rx="110" ry="27" fill="#e9eefb" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="380" y="357" font-weight="600" font-size="11.5">Search &amp; Filter</text>
+    <text x="380" y="371" font-size="11.5" font-weight="600">My Requests</text>
+
+    <!-- Agent use cases (col 1) -->
+    <ellipse cx="380" cy="440" rx="110" ry="27" fill="#eef7f0" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="380" y="445" font-weight="600">View Support Queue</text>
+
+    <ellipse cx="380" cy="510" rx="110" ry="27" fill="#eef7f0" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="380" y="515" font-weight="600">Claim Ticket</text>
+
+    <ellipse cx="380" cy="580" rx="110" ry="27" fill="#eef7f0" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="380" y="585" font-weight="600">Release Ticket</text>
+
+    <ellipse cx="380" cy="650" rx="110" ry="27" fill="#eef7f0" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="380" y="647" font-weight="600" font-size="11.5">Update Ticket Status</text>
+    <text x="380" y="661" font-size="10" fill="#5e6680">(resolve / close)</text>
+
+    <ellipse cx="380" cy="720" rx="110" ry="27" fill="#eef7f0" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="380" y="717" font-weight="600" font-size="11.5">Search &amp; Filter</text>
+    <text x="380" y="731" font-size="11.5" font-weight="600">Tickets</text>
+
+    <!-- Shared Agent+Admin (col 2, upper) -->
+    <ellipse cx="790" cy="440" rx="110" ry="27" fill="#fbf3e6" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="790" y="445" font-weight="600">Reassign Ticket</text>
+
+    <ellipse cx="790" cy="510" rx="110" ry="27" fill="#fbf3e6" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="790" y="505" font-weight="600" font-size="11.5">Add Internal</text>
+    <text x="790" y="519" font-size="11.5" font-weight="600">Comment</text>
+
+    <!-- Admin use cases (col 2, lower) -->
+    <ellipse cx="790" cy="580" rx="110" ry="27" fill="#f6f4fb" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="790" y="575" font-weight="600" font-size="11.5">Review Pending Request</text>
+    <text x="790" y="589" font-size="10" fill="#5e6680">(accept / deny)</text>
+
+    <ellipse cx="790" cy="650" rx="110" ry="27" fill="#f6f4fb" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="790" y="655" font-weight="600">Run Auto-Triage</text>
+
+    <ellipse cx="790" cy="720" rx="110" ry="27" fill="#f6f4fb" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="790" y="725" font-weight="600" font-size="11.5">Manage User Accounts</text>
+
+    <ellipse cx="790" cy="790" rx="110" ry="27" fill="#f6f4fb" stroke="#1a1f2e" stroke-width="1.4"/>
+    <text x="790" y="785" font-weight="600" font-size="11.5">View Reports &amp;</text>
+    <text x="790" y="799" font-size="11.5" font-weight="600">Dashboard</text>
+  </g>
+
+  <!-- ===================== Actors ===================== -->
+  <g stroke="#1a1f2e" stroke-width="1.8" fill="none">
+    <!-- Member -->
+    <circle cx="90" cy="244" r="14" fill="#ffffff"/>
+    <line x1="90" y1="258" x2="90" y2="300"/>
+    <line x1="72" y1="274" x2="108" y2="274"/>
+    <line x1="90" y1="300" x2="76" y2="330"/>
+    <line x1="90" y1="300" x2="104" y2="330"/>
+  </g>
+  <text x="90" y="350" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1f2e">Member</text>
+
+  <g stroke="#1a1f2e" stroke-width="1.8" fill="none">
+    <!-- Agent -->
+    <circle cx="90" cy="534" r="14" fill="#ffffff"/>
+    <line x1="90" y1="548" x2="90" y2="590"/>
+    <line x1="72" y1="564" x2="108" y2="564"/>
+    <line x1="90" y1="590" x2="76" y2="620"/>
+    <line x1="90" y1="590" x2="104" y2="620"/>
+  </g>
+  <text x="90" y="640" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1f2e">Agent</text>
+
+  <g stroke="#1a1f2e" stroke-width="1.8" fill="none">
+    <!-- Admin -->
+    <circle cx="90" cy="784" r="14" fill="#ffffff"/>
+    <line x1="90" y1="798" x2="90" y2="840"/>
+    <line x1="72" y1="814" x2="108" y2="814"/>
+    <line x1="90" y1="840" x2="76" y2="870"/>
+    <line x1="90" y1="840" x2="104" y2="870"/>
+  </g>
+  <text x="90" y="890" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1f2e">Admin</text>
+
+  <!-- Auto-Triage engine: secondary/system actor -->
+  <rect x="1035" y="620" width="130" height="60" rx="8" fill="#f3f0fb" stroke="#7a5fc4" stroke-width="1.4"/>
+  <text x="1100" y="642" text-anchor="middle" font-size="10.5" font-style="italic" fill="#7a5fc4">&#171;system&#187;</text>
+  <text x="1100" y="658" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1f2e">Auto-Triage</text>
+  <text x="1100" y="672" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1f2e">Engine</text>
+
+  <!-- Legend -->
+  <rect x="60" y="930" width="1080" height="70" rx="10" fill="#fafbfc" stroke="#d8dce6" stroke-width="1"/>
+  <text x="80" y="952" font-size="12" font-weight="700" fill="#1a1f2e">Notes</text>
+  <text x="80" y="970" font-size="11" fill="#3a4256">Reassign Ticket and Add Internal Comment are shared by Agent and Admin. Run Auto-Triage &#171;extend&#187;s Review Pending Request — it is</text>
+  <text x="80" y="986" font-size="11" fill="#3a4256">an automated, rule-based path to the same accept/deny decision, triggered by the Admin and executed by the Auto-Triage Engine.</text>
+</svg>

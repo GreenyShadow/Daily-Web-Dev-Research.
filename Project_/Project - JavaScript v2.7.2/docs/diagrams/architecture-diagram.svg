@@ -1,0 +1,66 @@
+<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <rect x="0" y="0" width="900" height="720" fill="#ffffff"/>
+  <text x="450" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1f2e">System Architecture</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13" fill="#5e6680">ASP.NET Core MVC + EF Core (target architecture for the C# port)</text>
+
+  <defs>
+    <marker id="a-down" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3a4256"/>
+    </marker>
+  </defs>
+
+  <!-- Browser -->
+  <rect x="250" y="90" width="400" height="60" rx="8" fill="#eef1f8" stroke="#1a1f2e" stroke-width="1.5"/>
+  <text x="450" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f2e">Browser</text>
+  <text x="450" y="134" text-anchor="middle" font-size="11.5" fill="#5e6680">Razor Views (Admin, Agent, Member, Auth) + minimal client-side JS</text>
+
+  <line x1="450" y1="150" x2="450" y2="182" stroke="#3a4256" stroke-width="1.6" marker-end="url(#a-down)"/>
+  <text x="470" y="170" font-size="11" fill="#3a4256">HTTPS request</text>
+
+  <!-- Controllers -->
+  <rect x="220" y="184" width="460" height="70" rx="8" fill="#e9eefb" stroke="#1a1f2e" stroke-width="1.5"/>
+  <text x="450" y="210" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f2e">Controllers</text>
+  <text x="450" y="230" text-anchor="middle" font-size="11.5" fill="#5e6680">AuthController · TicketsController · UsersController · ReportsController</text>
+  <text x="450" y="246" text-anchor="middle" font-size="11" fill="#5e6680">[Authorize(Roles = "...")] on each action</text>
+
+  <line x1="450" y1="254" x2="450" y2="286" stroke="#3a4256" stroke-width="1.6" marker-end="url(#a-down)"/>
+
+  <!-- Auth/Identity side box -->
+  <rect x="700" y="184" width="150" height="90" rx="8" fill="#f6f4fb" stroke="#1a1f2e" stroke-width="1.5"/>
+  <text x="775" y="206" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1f2e">ASP.NET Core</text>
+  <text x="775" y="222" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1f2e">Identity</text>
+  <text x="775" y="242" text-anchor="middle" font-size="10.5" fill="#5e6680">login, hashed passwords,</text>
+  <text x="775" y="256" text-anchor="middle" font-size="10.5" fill="#5e6680">role claims, cookie/session</text>
+  <line x1="660" y1="220" x2="696" y2="220" stroke="#3a4256" stroke-width="1.4" marker-end="url(#a-down)"/>
+
+  <!-- Services -->
+  <rect x="220" y="288" width="460" height="70" rx="8" fill="#eef7f0" stroke="#1a1f2e" stroke-width="1.5"/>
+  <text x="450" y="314" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f2e">Services (business logic)</text>
+  <text x="450" y="334" text-anchor="middle" font-size="11.5" fill="#5e6680">TicketService · TriageService (rule engine) · ReportingService · UserService</text>
+  <text x="450" y="350" text-anchor="middle" font-size="11" fill="#5e6680">enforces status pipeline, role permissions, workload rules</text>
+
+  <line x1="450" y1="358" x2="450" y2="390" stroke="#3a4256" stroke-width="1.6" marker-end="url(#a-down)"/>
+
+  <!-- Repositories / DbContext -->
+  <rect x="220" y="392" width="460" height="70" rx="8" fill="#f1f2f5" stroke="#1a1f2e" stroke-width="1.5"/>
+  <text x="450" y="418" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f2e">Data Access — EF Core</text>
+  <text x="450" y="438" text-anchor="middle" font-size="11.5" fill="#5e6680">AppDbContext (DbSet&lt;User&gt;, DbSet&lt;Ticket&gt;, DbSet&lt;Comment&gt;, DbSet&lt;TicketHistory&gt;)</text>
+  <text x="450" y="454" text-anchor="middle" font-size="11" fill="#5e6680">code-first migrations</text>
+
+  <line x1="450" y1="462" x2="450" y2="494" stroke="#3a4256" stroke-width="1.6" marker-end="url(#a-down)"/>
+
+  <!-- Database -->
+  <g>
+    <path d="M 320 500 a 130 18 0 0 1 260 0 v 70 a 130 18 0 0 1 -260 0 z" fill="#e5f3ec" stroke="#1a1f2e" stroke-width="1.5"/>
+    <ellipse cx="450" cy="500" rx="130" ry="18" fill="#d5ecdf" stroke="#1a1f2e" stroke-width="1.5"/>
+    <text x="450" y="558" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1f2e">SQL Server</text>
+    <text x="450" y="576" text-anchor="middle" font-size="11" fill="#5e6680">Users · Tickets · Comments · TicketHistory</text>
+  </g>
+
+  <!-- Note box -->
+  <rect x="60" y="610" width="780" height="90" rx="10" fill="#fafbfc" stroke="#d8dce6" stroke-width="1"/>
+  <text x="80" y="634" font-size="13" font-weight="700" fill="#1a1f2e">Notes</text>
+  <text x="80" y="654" font-size="11.5" fill="#3a4256">• Standard ASP.NET Core MVC layering: Controllers handle HTTP + authorization only; Services hold the workflow rules (accept/deny/claim/</text>
+  <text x="80" y="670" font-size="11.5" fill="#3a4256">  release/reassign/resolve/close, auto-triage) so they're independent of the web layer and easy to unit test; EF Core is the only layer that</text>
+  <text x="80" y="686" font-size="11.5" fill="#3a4256">  talks to SQL Server directly. This mirrors the current Node/Express prototype's route → in-memory logic → JSON-file structure.</text>
+</svg>
