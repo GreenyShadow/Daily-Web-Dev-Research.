@@ -1,0 +1,75 @@
+<svg viewBox="0 0 1080 560" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <rect x="0" y="0" width="1080" height="560" fill="#ffffff"/>
+
+  <text x="540" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1f2e">Ticket Status Workflow</text>
+  <text x="540" y="58" text-anchor="middle" font-size="13" fill="#5e6680">Internal Support Request Management System</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3a4256"/>
+    </marker>
+  </defs>
+
+  <!-- ===== Main pipeline row (y ~ 150) ===== -->
+  <!-- Pending -->
+  <rect x="40"  y="120" width="150" height="64" rx="10" fill="#eef1f8" stroke="#5e6680" stroke-width="1.5"/>
+  <text x="115" y="147" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1f2e">pending</text>
+  <text x="115" y="165" text-anchor="middle" font-size="11" fill="#5e6680">ticket submitted</text>
+
+  <!-- Accepted -->
+  <rect x="290" y="120" width="150" height="64" rx="10" fill="#e5f3ec" stroke="#3fae74" stroke-width="1.5"/>
+  <text x="365" y="147" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1f2e">accepted</text>
+  <text x="365" y="165" text-anchor="middle" font-size="11" fill="#5e6680">in support queue</text>
+
+  <!-- In Progress -->
+  <rect x="540" y="120" width="150" height="64" rx="10" fill="#e9eefb" stroke="#5b8def" stroke-width="1.5"/>
+  <text x="615" y="147" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1f2e">in_progress</text>
+  <text x="615" y="165" text-anchor="middle" font-size="11" fill="#5e6680">claimed by an agent</text>
+
+  <!-- Resolved -->
+  <rect x="790" y="120" width="120" height="64" rx="10" fill="#e5f3ec" stroke="#3fae74" stroke-width="1.5"/>
+  <text x="850" y="147" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1f2e">resolved</text>
+  <text x="850" y="165" text-anchor="middle" font-size="11" fill="#5e6680">fix applied</text>
+
+  <!-- Closed -->
+  <rect x="960" y="120" width="105" height="64" rx="10" fill="#f1f2f5" stroke="#8d96ad" stroke-width="1.5"/>
+  <text x="1012" y="147" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1f2e">closed</text>
+  <text x="1012" y="165" text-anchor="middle" font-size="11" fill="#5e6680">wrapped up</text>
+
+  <!-- Arrows across the pipeline -->
+  <line x1="190" y1="152" x2="286" y2="152" stroke="#3a4256" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="238" y="140" text-anchor="middle" font-size="11" fill="#3a4256">Admin: accept</text>
+
+  <line x1="440" y1="152" x2="536" y2="152" stroke="#3a4256" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="488" y="140" text-anchor="middle" font-size="11" fill="#3a4256">Agent: claim</text>
+
+  <line x1="690" y1="152" x2="786" y2="152" stroke="#3a4256" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="738" y="140" text-anchor="middle" font-size="11" fill="#3a4256">Agent: resolve</text>
+
+  <line x1="910" y1="152" x2="956" y2="152" stroke="#3a4256" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="933" y="140" text-anchor="middle" font-size="11" fill="#3a4256">close</text>
+
+  <!-- Release: in_progress -> accepted (curve below) -->
+  <path d="M 615 184 C 615 230, 365 230, 365 184" fill="none" stroke="#8d96ad" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="490" y="222" text-anchor="middle" font-size="11" fill="#5e6680">Agent: release back to queue</text>
+
+  <!-- Reassign: self loop on in_progress -->
+  <path d="M 600 120 C 590 90, 640 90, 630 120" fill="none" stroke="#8d96ad" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="615" y="82" text-anchor="middle" font-size="11" fill="#5e6680">reassign to another agent</text>
+
+  <!-- ===== Denied branch ===== -->
+  <rect x="290" y="330" width="150" height="64" rx="10" fill="#fbe9ec" stroke="#e05a6e" stroke-width="1.5"/>
+  <text x="365" y="357" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1f2e">denied</text>
+  <text x="365" y="375" text-anchor="middle" font-size="11" fill="#5e6680">rejected, with a note</text>
+
+  <path d="M 100 184 C 100 300, 250 330, 286 350" fill="none" stroke="#3a4256" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="140" y="290" text-anchor="middle" font-size="11" fill="#3a4256">Admin: deny</text>
+  <text x="140" y="304" text-anchor="middle" font-size="10" fill="#8d96ad">(or Auto-Triage)</text>
+
+  <!-- ===== Legend / notes ===== -->
+  <rect x="40" y="440" width="1000" height="100" rx="10" fill="#fafbfc" stroke="#d8dce6" stroke-width="1"/>
+  <text x="60" y="465" font-size="13" font-weight="700" fill="#1a1f2e">Notes</text>
+  <text x="60" y="486" font-size="12" fill="#3a4256">• Only Admins decide accept/deny. Auto-Triage may also auto-deny (never auto-accept) tickets matching spam/reputation/department rules.</text>
+  <text x="60" y="504" font-size="12" fill="#3a4256">• Members may edit or cancel their own ticket only while it is "pending". Once accepted or denied, it is locked to them.</text>
+  <text x="60" y="522" font-size="12" fill="#3a4256">• Every status change and every assignment change is appended to the ticket's history log (actor, role, timestamp, action).</text>
+</svg>

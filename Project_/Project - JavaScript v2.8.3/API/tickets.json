@@ -1,0 +1,669 @@
+[
+  {
+    "id": "TCK00001",
+    "name": "Member",
+    "department": "UI",
+    "priority": "High",
+    "topic": "Layout",
+    "title": "Sidebar collapses on small screens",
+    "description": "The left navigation panel overlaps the main content when the browser window is narrower than 1024px.",
+    "createdAt": "2026-07-07T09:15:00.000Z",
+    "createdBy": "Member",
+    "status": "accepted",
+    "assignedTo": null,
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-07T09:15:00.000Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-14T01:54:13.578Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "pending → accepted"
+      },
+      {
+        "at": "2026-07-14T03:18:57.599Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      },
+      {
+        "at": "2026-07-14T03:36:42.304Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "released",
+        "detail": "Released back to the queue"
+      }
+    ]
+  },
+  {
+    "id": "TCK00002",
+    "name": "Sofia",
+    "department": "Security",
+    "priority": "Urgent",
+    "topic": "Access",
+    "title": "Cannot reset password after lockout",
+    "description": "After 3 failed login attempts my account locked and the password reset email never arrived.",
+    "createdAt": "2026-07-07T08:40:00.000Z",
+    "createdBy": "Sofia",
+    "status": "accepted",
+    "assignedTo": null,
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-07T08:40:00.000Z",
+        "by": "Sofia",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-14T01:54:11.939Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "pending → accepted"
+      },
+      {
+        "at": "2026-07-14T03:36:11.960Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      },
+      {
+        "at": "2026-07-14T03:36:52.744Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "released",
+        "detail": "Released back to the queue"
+      }
+    ]
+  },
+  {
+    "id": "TCK00003",
+    "name": "Member",
+    "department": "Design",
+    "priority": "Low",
+    "topic": "Assets",
+    "title": "Need a new company logo variant",
+    "description": "Requesting a dark-mode version of the logo for the new dashboard theme.",
+    "createdAt": "2026-07-06T14:05:00.000Z",
+    "createdBy": "Member",
+    "status": "denied",
+    "assignedTo": null,
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-06T14:05:00.000Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-06T15:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → denied"
+      }
+    ],
+    "triageNote": "Manually denied: brand asset requests go through the Design team's intake form, not the ticket system."
+  },
+  {
+    "id": "TCK00004",
+    "name": "Sofia",
+    "department": "UI",
+    "priority": "Medium",
+    "topic": "Bug",
+    "title": "Dropdown menu doesn't close on outside click",
+    "description": "Clicking anywhere outside the department dropdown should close it, but it stays open until you click the field again.",
+    "createdAt": "2026-07-05T10:00:00.000Z",
+    "createdBy": "Sofia",
+    "status": "in_progress",
+    "assignedTo": "Agent",
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-05T10:00:00.000Z",
+        "by": "Sofia",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-05T11:30:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → accepted"
+      },
+      {
+        "at": "2026-07-14T03:19:16.449Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      }
+    ]
+  },
+  {
+    "id": "TCK00005",
+    "name": "Member",
+    "department": "Security",
+    "priority": "High",
+    "topic": "Access",
+    "title": "Two-factor codes arriving late",
+    "description": "SMS codes for two-factor login are taking over 5 minutes to arrive, causing the code to expire before I can use it.",
+    "createdAt": "2026-07-04T09:30:00.000Z",
+    "createdBy": "Member",
+    "status": "in_progress",
+    "assignedTo": "Agent",
+    "comments": [
+      {
+        "id": "cmt00001",
+        "by": "Agent",
+        "role": "agent",
+        "at": "2026-07-05T09:00:00.000Z",
+        "text": "Checked with the SMS provider — seeing elevated delivery times on their end, following up."
+      }
+    ],
+    "history": [
+      {
+        "at": "2026-07-04T09:30:00.000Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-04T10:15:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → accepted"
+      },
+      {
+        "at": "2026-07-04T13:00:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      }
+    ]
+  },
+  {
+    "id": "TCK00006",
+    "name": "Sofia",
+    "department": "Design",
+    "priority": "Medium",
+    "topic": "Rendering",
+    "title": "Icons blurry on high-DPI displays",
+    "description": "The sidebar icons look pixelated on retina/high-DPI monitors — looks like they're not using the @2x asset.",
+    "createdAt": "2026-07-03T11:00:00.000Z",
+    "createdBy": "Sofia",
+    "status": "closed",
+    "assignedTo": "Priya",
+    "comments": [
+      {
+        "id": "cmt00002",
+        "by": "Priya",
+        "role": "agent",
+        "at": "2026-07-06T10:00:00.000Z",
+        "text": "Reproduced on a 4K monitor. Swapping in the @2x icon set now."
+      }
+    ],
+    "history": [
+      {
+        "at": "2026-07-03T11:00:00.000Z",
+        "by": "Sofia",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-03T12:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → accepted"
+      },
+      {
+        "at": "2026-07-04T14:00:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      },
+      {
+        "at": "2026-07-05T09:30:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "reassigned",
+        "detail": "Agent → Priya"
+      },
+      {
+        "at": "2026-07-14T03:37:06.268Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      },
+      {
+        "at": "2026-07-14T03:37:07.588Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "resolved → closed"
+      }
+    ]
+  },
+  {
+    "id": "TCK00007",
+    "name": "Member",
+    "department": "UI",
+    "priority": "Low",
+    "topic": "Copy",
+    "title": "Typo in the ticket submission confirmation banner",
+    "description": "The success banner reads 'Your requst has been sent' — missing an 'e' in request.",
+    "createdAt": "2026-07-02T08:20:00.000Z",
+    "createdBy": "Member",
+    "status": "resolved",
+    "assignedTo": "Priya",
+    "comments": [
+      {
+        "id": "cmt00003",
+        "by": "Priya",
+        "role": "agent",
+        "at": "2026-07-03T10:30:00.000Z",
+        "text": "Fixed the typo, deployed with the next release."
+      }
+    ],
+    "history": [
+      {
+        "at": "2026-07-02T08:20:00.000Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-02T09:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → accepted"
+      },
+      {
+        "at": "2026-07-03T09:45:00.000Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Priya"
+      },
+      {
+        "at": "2026-07-03T10:30:00.000Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      }
+    ]
+  },
+  {
+    "id": "TCK00008",
+    "name": "Sofia",
+    "department": "Security",
+    "priority": "Medium",
+    "topic": "Access",
+    "title": "Request to disable dormant SSO session",
+    "description": "My laptop was replaced and the old device still shows as an active SSO session — please revoke it.",
+    "createdAt": "2026-07-01T09:00:00.000Z",
+    "createdBy": "Sofia",
+    "status": "closed",
+    "assignedTo": "Agent",
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-01T09:00:00.000Z",
+        "by": "Sofia",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-01T10:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → accepted"
+      },
+      {
+        "at": "2026-07-02T10:00:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      },
+      {
+        "at": "2026-07-02T15:00:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      },
+      {
+        "at": "2026-07-02T15:30:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "resolved → closed"
+      }
+    ]
+  },
+  {
+    "id": "TCK00009",
+    "name": "Member",
+    "department": "Design",
+    "priority": "Low",
+    "topic": "Docs",
+    "title": "Broken link in the onboarding guide",
+    "description": "The 'brand guidelines' link in the new-hire onboarding doc points to a 404 page.",
+    "createdAt": "2026-06-30T09:00:00.000Z",
+    "createdBy": "Member",
+    "status": "closed",
+    "assignedTo": "Agent",
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-06-30T09:00:00.000Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-06-30T10:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → accepted"
+      },
+      {
+        "at": "2026-07-01T10:00:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      },
+      {
+        "at": "2026-07-01T15:00:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      },
+      {
+        "at": "2026-07-01T15:30:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "resolved → closed"
+      }
+    ]
+  },
+  {
+    "id": "TCK00010",
+    "name": "Sofia",
+    "department": "UI",
+    "priority": "High",
+    "topic": "Bug",
+    "title": "Search results don't update after clearing filters",
+    "description": "After clearing all filter tabs, the ticket list still shows the last filtered set until you refresh the page.",
+    "createdAt": "2026-06-29T09:00:00.000Z",
+    "createdBy": "Sofia",
+    "status": "closed",
+    "assignedTo": "Priya",
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-06-29T09:00:00.000Z",
+        "by": "Sofia",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-06-29T10:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → accepted"
+      },
+      {
+        "at": "2026-06-30T10:00:00.000Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Priya"
+      },
+      {
+        "at": "2026-06-30T15:00:00.000Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      },
+      {
+        "at": "2026-06-30T15:30:00.000Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "resolved → closed"
+      }
+    ]
+  },
+  {
+    "id": "TCK00011",
+    "name": "Member",
+    "department": "Security",
+    "priority": "Urgent",
+    "topic": "Access",
+    "title": "Locked out after VPN certificate expired",
+    "description": "My VPN client rejects the connection with an expired certificate error since this morning.",
+    "createdAt": "2026-06-28T09:00:00.000Z",
+    "createdBy": "Member",
+    "status": "closed",
+    "assignedTo": "Priya",
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-06-28T09:00:00.000Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-06-28T10:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → accepted"
+      },
+      {
+        "at": "2026-06-29T10:00:00.000Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Priya"
+      },
+      {
+        "at": "2026-06-29T15:00:00.000Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      },
+      {
+        "at": "2026-06-29T15:30:00.000Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "resolved → closed"
+      }
+    ]
+  },
+  {
+    "id": "TCK00012",
+    "name": "Sofia",
+    "department": "Design",
+    "priority": "Medium",
+    "topic": "Assets",
+    "title": "Need updated department icon set",
+    "description": "The Security department icon still uses the old shield logo from last year's rebrand.",
+    "createdAt": "2026-06-28T09:00:00.000Z",
+    "createdBy": "Sofia",
+    "status": "closed",
+    "assignedTo": "Agent",
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-06-28T09:00:00.000Z",
+        "by": "Sofia",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-06-28T10:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → accepted"
+      },
+      {
+        "at": "2026-06-29T10:00:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      },
+      {
+        "at": "2026-06-29T15:00:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      },
+      {
+        "at": "2026-06-29T15:30:00.000Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "resolved → closed"
+      }
+    ]
+  },
+  {
+    "id": "TCK00013",
+    "name": "Member",
+    "department": "Marketing",
+    "priority": "Low",
+    "topic": "",
+    "title": "Can someone update the events calendar",
+    "description": "",
+    "createdAt": "2026-07-01T13:00:00.000Z",
+    "createdBy": "Member",
+    "status": "denied",
+    "assignedTo": null,
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-01T13:00:00.000Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-01T15:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → denied"
+      }
+    ],
+    "triageNote": "Manually denied: \"Marketing\" isn't a department this queue covers — please use the Marketing intake form."
+  },
+  {
+    "id": "TCK00014",
+    "name": "Sofia",
+    "department": "UI",
+    "priority": "Low",
+    "topic": "",
+    "title": "quick question",
+    "description": "just checking if this thing works",
+    "createdAt": "2026-07-04T13:00:00.000Z",
+    "createdBy": "Sofia",
+    "status": "denied",
+    "assignedTo": null,
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-04T13:00:00.000Z",
+        "by": "Sofia",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-04T15:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → denied"
+      }
+    ],
+    "triageNote": "Auto-denied: Title or description is empty/too short to act on"
+  },
+  {
+    "id": "TCK00015",
+    "name": "Member",
+    "department": "Design",
+    "priority": "Medium",
+    "topic": "Assets",
+    "title": "Duplicate of TCK00003",
+    "description": "Submitted by mistake, please ignore.",
+    "createdAt": "2026-07-06T13:00:00.000Z",
+    "createdBy": "Member",
+    "status": "denied",
+    "assignedTo": null,
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-06T13:00:00.000Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-06T15:00:00.000Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "(none) → denied"
+      }
+    ],
+    "triageNote": "Manually denied: duplicate request, see TCK00003."
+  }
+]

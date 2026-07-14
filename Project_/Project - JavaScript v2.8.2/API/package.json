@@ -1,0 +1,16 @@
+{
+  "name": "ticket-api",
+  "version": "1.0.0",
+  "description": "Flat-file JSON ticket API (debug-grade, no auth hardening)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}

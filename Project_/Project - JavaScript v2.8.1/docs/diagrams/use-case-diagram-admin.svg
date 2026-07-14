@@ -1,0 +1,92 @@
+<svg viewBox="0 0 1400 680" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+<rect x="0" y="0" width="1400" height="680" fill="#ffffff"/>
+<text x="700" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1f2e">Use Case Diagram — Admin</text>
+<text x="700" y="56" text-anchor="middle" font-size="12.5" fill="#5e6680">Internal Support Request Management System</text>
+<defs>
+<marker id="uc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker>
+</defs>
+
+<!-- System boundary -->
+<rect x="250" y="90" width="880" height="440" rx="10" fill="#fafbfc" stroke="#000000" stroke-width="1.5"/>
+<text x="690" y="116" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1f2e">Internal Support Request Management System</text>
+
+<!-- Association lines -->
+<g stroke="#000000" stroke-width="1.3" fill="none">
+<line x1="140" y1="320" x2="315" y2="170"/>
+<line x1="140" y1="320" x2="575" y2="170"/>
+<line x1="140" y1="320" x2="315" y2="270"/>
+<line x1="140" y1="320" x2="575" y2="270"/>
+<line x1="140" y1="320" x2="315" y2="370"/>
+<line x1="140" y1="320" x2="575" y2="370"/>
+<line x1="140" y1="320" x2="315" y2="470"/>
+<line x1="140" y1="320" x2="575" y2="470"/>
+</g>
+
+<!-- <<extend>> relationship -->
+<line x1="575" y1="370" x2="529" y2="370" stroke="#000000" stroke-width="1.3" stroke-dasharray="5,4" marker-end="url(#uc-arrow)"/>
+<text x="552" y="356" text-anchor="middle" font-size="10.5" font-style="italic" fill="#000000">&#171;extend&#187;</text>
+
+<!-- Auto-Triage Engine (system actor) -->
+<line x1="785" y1="370" x2="1160" y2="370" stroke="#000000" stroke-width="1.3" stroke-dasharray="4,3"/>
+<rect x="1160" y="338" width="150" height="64" rx="8" fill="#f3f0fb" stroke="#000000" stroke-width="1.4"/>
+<text x="1235" y="360" text-anchor="middle" font-size="10.5" font-style="italic" fill="#5e6680">&#171;system&#187;</text>
+<text x="1235" y="378" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1f2e">Auto-Triage</text>
+<text x="1235" y="394" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1f2e">Engine</text>
+
+<!-- Use cases -->
+<g text-anchor="middle">
+<ellipse cx="420" cy="170" rx="105" ry="28" fill="#eef1f8" stroke="#000000" stroke-width="1.4"/>
+<text x="420" y="175" font-size="13" font-weight="600" fill="#1a1f2e">Login</text>
+<text x="420" y="206" font-size="9.5" font-style="italic" fill="#8a92a8">(shared with Member, Agent)</text>
+
+<ellipse cx="680" cy="170" rx="105" ry="28" fill="#eef1f8" stroke="#000000" stroke-width="1.4"/>
+<text x="680" y="175" font-size="13" font-weight="600" fill="#1a1f2e">Logout</text>
+<text x="680" y="206" font-size="9.5" font-style="italic" fill="#8a92a8">(shared with Member, Agent)</text>
+
+<ellipse cx="420" cy="270" rx="105" ry="28" fill="#fbf3e6" stroke="#000000" stroke-width="1.4"/>
+<text x="420" y="275" font-size="12.5" font-weight="600" fill="#1a1f2e">Reassign Ticket</text>
+<text x="420" y="306" font-size="9.5" font-style="italic" fill="#8a92a8">(shared with Agent)</text>
+
+<ellipse cx="680" cy="270" rx="105" ry="28" fill="#fbf3e6" stroke="#000000" stroke-width="1.4"/>
+<text x="680" y="275" font-size="12.5" font-weight="600" fill="#1a1f2e">Add Internal Comment</text>
+<text x="680" y="306" font-size="9.5" font-style="italic" fill="#8a92a8">(shared with Agent)</text>
+
+<ellipse cx="420" cy="370" rx="105" ry="32" fill="#f6f4fb" stroke="#000000" stroke-width="1.4"/>
+<text x="420" y="367" font-size="12.5" font-weight="600" fill="#1a1f2e">Review Pending Request</text>
+<text x="420" y="383" font-size="9.5" fill="#5e6680">(accept / deny)</text>
+
+<ellipse cx="680" cy="370" rx="105" ry="28" fill="#f6f4fb" stroke="#000000" stroke-width="1.4"/>
+<text x="680" y="375" font-size="12.5" font-weight="600" fill="#1a1f2e">Run Auto-Triage</text>
+
+<ellipse cx="420" cy="470" rx="105" ry="28" fill="#f6f4fb" stroke="#000000" stroke-width="1.4"/>
+<text x="420" y="475" font-size="12.5" font-weight="600" fill="#1a1f2e">Manage User Accounts</text>
+
+<ellipse cx="680" cy="470" rx="105" ry="34" fill="#f6f4fb" stroke="#000000" stroke-width="1.4"/>
+<text x="680" y="466" font-size="12.5" font-weight="600" fill="#1a1f2e">View Reports &amp;</text>
+<text x="680" y="483" font-size="12.5" font-weight="600" fill="#1a1f2e">Dashboard</text>
+</g>
+
+<!-- Actor -->
+<g stroke="#000000" stroke-width="2" fill="none">
+<circle cx="110" cy="280" r="15" fill="#ffffff"/>
+<line x1="110" y1="295" x2="110" y2="325"/>
+<line x1="91" y1="308" x2="129" y2="308"/>
+<line x1="110" y1="325" x2="95" y2="355"/>
+<line x1="110" y1="325" x2="125" y2="355"/>
+</g>
+<text x="110" y="379" text-anchor="middle" font-size="13.5" font-weight="700" fill="#9b6bc4">Admin</text>
+
+<!-- Legend -->
+<rect x="60" y="560" width="1280" height="90" rx="10" fill="#fafbfc" stroke="#d8dce6" stroke-width="1"/>
+<text x="80" y="583" font-size="12" font-weight="700" fill="#1a1f2e">Legend</text>
+<ellipse cx="115" cy="600" rx="14" ry="9" fill="#eef1f8" stroke="#000000" stroke-width="1.2"/>
+<text x="138" y="604" font-size="11.5" fill="#3a4256">Shared across all roles</text>
+<ellipse cx="330" cy="600" rx="14" ry="9" fill="#fbf3e6" stroke="#000000" stroke-width="1.2"/>
+<text x="353" y="604" font-size="11.5" fill="#3a4256">Shared with Agent</text>
+<ellipse cx="530" cy="600" rx="14" ry="9" fill="#f6f4fb" stroke="#000000" stroke-width="1.2"/>
+<text x="553" y="604" font-size="11.5" fill="#3a4256">Admin-only</text>
+<line x1="700" y1="600" x2="740" y2="600" stroke="#000000" stroke-width="1.3" stroke-dasharray="5,4" marker-end="url(#uc-arrow)"/>
+<text x="750" y="604" font-size="11.5" fill="#3a4256">&#171;extend&#187;</text>
+<text x="80" y="626" font-size="11" fill="#3a4256">Run Auto-Triage extends Review Pending Request and is performed with the help of the external Auto-Triage Engine. All lines use a single black stroke.</text>
+<text x="80" y="642" font-size="11" fill="#3a4256">See use-case-diagram-member.svg and use-case-diagram-agent.svg for the Member and Agent views.</text>
+</svg>
