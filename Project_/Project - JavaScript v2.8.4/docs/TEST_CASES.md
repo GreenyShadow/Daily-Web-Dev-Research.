@@ -16,8 +16,23 @@ Each case shows the request, the expected result, and the actual result observed
 | TC-08 | Admin accepts a pending ticket | Admin `PATCH`es status to `accepted` | `200`, status becomes `accepted`, history entry added | `200`, status `accepted`, history logged with admin's name | ✅ Pass |
 | TC-09 | Agent claims an accepted ticket | `POST /tickets/:id/claim` as Agent | `200`, status → `in_progress`, `assignedTo` set to the agent | `200`, status `in_progress`, `assignedTo:"Agent"`, history logged | ✅ Pass |
 | TC-10 | Member cancels an already-processed ticket | Member `DELETE`s a ticket that's already `accepted`/claimed | `409` — can't cancel after review | `409 {"error":"This request has already been reviewed and can no longer be cancelled"}` | ✅ Pass |
+| TC-11 | Admin views all tickets | Admin requests `GET /tickets` | `200` with full ticket list, includes pending and denied items | `200`, full list returned with tickets in every status | ✅ Pass |
+| TC-12 | Agent views only support-stage tickets | Agent requests `GET /tickets` | `200` with tickets filtered to `accepted`/`in_progress`/`resolved`/`closed` | `200`, returned only support-stage tickets | ✅ Pass |
+| TC-13 | Member deletes own pending ticket | Member `DELETE /tickets/:id` on a pending ticket they created | `204` and ticket removed | `204`, ticket removed from list | ✅ Pass |
+| TC-14 | Admin denies a pending ticket | Admin `PATCH /tickets/:id` to `{ status: 'denied', triageNote: 'Not valid' }` | `200`, status `denied`, `triageNote` saved | `200`, status `denied`, history entry logged | ✅ Pass |
+| TC-15 | Agent releases a claimed ticket | Agent `POST /tickets/:id/release` on a ticket they currently own | `200`, status becomes `accepted`, `assignedTo` clears | `200`, status `accepted`, `assignedTo:null` | ✅ Pass |
+| TC-16 | Agent reassigns a claimed ticket | Agent `POST /tickets/:id/reassign` with `to: 'Priya'` | `200`, `assignedTo:'Priya'`, history updated | `200`, assigned to `Priya`, history shows reassignment | ✅ Pass |
+| TC-17 | Admin creates an agent account | Admin `POST /users` with new agent data | `201`, new user returned without password | `201`, created `username`, `role:'agent'` | ✅ Pass |
+| TC-18 | Admin updates user role and invalidates sessions | Admin `PATCH /users/Priya` to `{ role: 'admin' }` | `200`, role changed, related sessions revoked | `200`, role updated, prior session token later invalid | ✅ Pass |
+| TC-19 | Admin cannot delete their own account | Admin `DELETE /users/Admin` | `400` with self-delete error | `400 {"error":"You can't delete the account you're logged in as"}` | ✅ Pass |
+| TC-20 | Agent adds internal comment to a ticket | Agent `POST /tickets/:id/comments` with `text` | `201`, ticket returned with comment added | `201`, comment present in ticket comments | ✅ Pass |
+| TC-21 | Member cannot add internal comment | Member `POST /tickets/:id/comments` | `403` — forbidden for members | `403 {"error":"Not allowed for this role"}` | ✅ Pass |
+| TC-22 | Get a non-existent ticket | Any authenticated user requests `GET /tickets/invalid` | `404` | `404 {"error":"Ticket not found"}` | ✅ Pass |
+| TC-23 | Create ticket with missing fields | `POST /tickets` missing `title` | `400` with missing fields error | `400 {"error":"Missing required fields: name, department, priority, title"}` | ✅ Pass |
+| TC-24 | Logout invalidates token | User `POST /logout`, then reuses same token | `204` then `401` on reuse | `204`, subsequent request `401 {"error":"Invalid or expired session"}` | ✅ Pass |
+| TC-25 | Agent claims a non-accepted ticket | Agent `POST /tickets/:id/claim` on a pending ticket | `409` — only accepted tickets can be claimed | `409 {"error":"Only tickets waiting in the queue can be claimed"}` | ✅ Pass |
 
-**Result: 10 / 10 passed.**
+**Result: 25 / 25 passed.**
 
 ## Bug found during this pass
 
