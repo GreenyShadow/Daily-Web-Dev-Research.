@@ -1,0 +1,19 @@
+flowchart LR
+  Agent[Agent]
+  Login((Login))
+  ViewQueue((View Support Queue))
+  Claim((Claim Ticket))
+  Release((Release Ticket))
+  Reassign((Reassign Ticket))
+  Comment((Add Internal Comment))
+  Update((Update Ticket Status))
+  Logout((Logout))
+
+  Agent --> Login
+  Agent --> ViewQueue
+  Agent --> Claim
+  Agent --> Release
+  Agent --> Reassign
+  Agent --> Comment
+  Agent --> Update
+  Agent --> Logout

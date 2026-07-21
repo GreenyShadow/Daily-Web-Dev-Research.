@@ -1,0 +1,17 @@
+flowchart LR
+  Admin[Admin]
+  Login((Login))
+  Review((Review Pending Tickets))
+  Decide((Accept or Deny Ticket))
+  Assign((Assign or Reassign Ticket))
+  ManageUsers((Manage Users))
+  ViewAll((View All Tickets))
+  Logout((Logout))
+
+  Admin --> Login
+  Admin --> Review
+  Admin --> Decide
+  Admin --> Assign
+  Admin --> ManageUsers
+  Admin --> ViewAll
+  Admin --> Logout

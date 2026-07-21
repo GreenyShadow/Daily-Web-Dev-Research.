@@ -1,0 +1,36 @@
+flowchart LR
+  subgraph Member
+    MSubmit([Member submits ticket])
+    MEdit([Member edits/cancels while pending])
+  end
+
+  subgraph Admin
+    AdminReview([Admin reviews pending tickets])
+    AdminAccept([Admin accepts ticket])
+    AdminDeny([Admin denies ticket])
+  end
+
+  subgraph Support
+    Queue([Accepted queue])
+    Claim([Agent claims ticket → in_progress])
+    Release([Agent releases back to queue])
+    Reassign([Agent/Admin reassigns ticket])
+    Resolve([Agent resolves ticket])
+    Close([Ticket closed])
+  end
+
+  MSubmit --> AdminReview
+  AdminReview -->|accepts| AdminAccept
+  AdminReview -->|denies| AdminDeny
+  AdminAccept --> Queue
+  Queue --> Claim
+  Claim --> Resolve
+  Resolve --> Close
+  Claim --> Release
+  Release --> Queue
+  Claim --> Reassign
+  Reassign --> Claim
+  MEdit --> AdminReview
+
+  classDef role fill:#f3f4f6,stroke:#333,stroke-width:1px
+  class Member,Admin,Support role
