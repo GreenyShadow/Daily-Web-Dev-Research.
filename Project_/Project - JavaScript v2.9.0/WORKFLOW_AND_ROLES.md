@@ -95,7 +95,7 @@ Use seeded demo accounts described in the README or `docs/USER_GUIDE.md`.
 - These are documented, deliberate gaps for this stage of the JavaScript implementation — see `docs/BUGFIX_LOG.md` → "Known limitations" for the full list and rationale.
 
 ## 8. Where to look in the repo
-- README: `README.md` (root of v2.8.4).
+- README: `README.md` (root of v2.9.0).
 - Server: `API/index.js` (core logic, routes, role checks, lifecycle functions).
 - Client API wrapper: `UI-React/src/lib/api.js`.
 - Shared dialog/modal: `UI-React/src/components/Modal.jsx` (Radix UI `Dialog` wrapper used by every modal, including `TicketDetailModal.jsx`).
@@ -111,5 +111,3 @@ Use seeded demo accounts described in the README or `docs/USER_GUIDE.md`.
 - Add pagination, search indexing, and notifications (email/Slack) for assigned agents.
 - Harden role checks and add audit logs (separate audit store) for compliance.
 
----
-Generated from code and README in Project v2.8.4. If you want a condensed Mermaid sequence diagram or a CSV permissions matrix, tell me which and I will add it into the repo as well.
