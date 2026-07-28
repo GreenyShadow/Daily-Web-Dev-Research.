@@ -2,7 +2,7 @@
 
 This guide explains how to use the system in each of its three roles: **Member**, **Agent**, and **Admin**.
 
-To try it yourself, start the API and open `UI/Auth/index.html` in a browser (see `README.md` → "Running the prototype locally"). Log in with one of the seeded demo accounts below.
+To try it yourself, start the API and open the UI (see `README.md` → "Running the app locally" for both the original HTML/CSS/JS client and the React client). Log in with one of the seeded demo accounts below.
 
 | Username | Password | Role |
 |---|---|---|
@@ -29,6 +29,7 @@ As a Member you can submit requests and track your own tickets.
 
 **Managing your requests**
 - Go to **My Tickets** to see everything you've submitted, with its current status.
+- Use the sort dropdown to order your tickets by date created — newest first or oldest first, your choice.
 - While a ticket is still **pending**, you can edit its details or cancel it.
 - Once an Admin has accepted or denied it, you can no longer edit or cancel it — you'll only be able to view its progress and any notes it picks up along the way.
 
@@ -41,9 +42,11 @@ As an Agent you work tickets that have already cleared Admin triage.
 **The queue**
 - The **Queue** shows tickets that are `accepted` but not yet claimed by anyone.
 - Click **Claim** to take a ticket — it moves to `in_progress` and is assigned to you.
+- Use the sort dropdown to order the queue by date created (newest or oldest first).
 
 **Your work**
 - The **My Work** view shows tickets currently assigned to you.
+- It has its own sort dropdown, independent from the Queue's — order it by date created (newest or oldest first).
 - From here you can:
   - **Release** a ticket back to the open queue if you can't work it.
   - **Reassign** it to a teammate.
@@ -57,11 +60,12 @@ As an Agent you work tickets that have already cleared Admin triage.
 As an Admin you triage incoming requests, manage accounts, and monitor the system.
 
 **Triage**
-- New requests arrive as `pending`. From the **Overview** tab, **Accept** moves a request into the support queue for Agents to pick up; **Deny** rejects it (you can attach a note explaining why).
+- New requests arrive as `pending`. From the **Triage** tab, **Accept** moves a request into the support queue for Agents to pick up; **Deny** rejects it (you can attach a note explaining why).
+- Use the sort dropdown to order the triage list by date created. It defaults to oldest-first, so the longest-waiting requests surface at the top — switch it to newest-first if you'd rather review recent submissions.
 - **Auto-Triage**: a rule-based helper that automatically denies obvious junk (empty/too-short descriptions, unrecognized departments, spam-like text, or language flagged as reputation-damaging). It only ever denies — it never auto-accepts — and it only touches requests that haven't been reviewed yet, so anything already accepted, claimed, resolved, or closed is left alone.
 
 **Reports**
-- Pick a time range (Today / Last 7 Days / Last 30 Days / All Time / Custom).
+- Pick a time range (Today / Last 7 Days / Last 30 Days / All Time).
 - See total requests, and a breakdown of awaiting/accepted/denied/expired.
 - **Status Distribution** donut chart and a **Daily Volume** bar chart for the selected range.
 - **Agent Workload** — how many tickets are currently assigned to each agent, split into open (still active) vs. closed (resolved/closed), so you can see who's carrying the most work.

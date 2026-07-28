@@ -24,14 +24,31 @@ This log records issues found while reviewing and exercising the prototype, what
 
 ---
 
+### BUG-002 — Member "Edit request" modal was unresponsive (couldn't type or click anything in it)
+
+- **Severity:** High
+- **Component:** `UI-React/src/pages/member/MemberPage.jsx` — the "Edit request" panel
+- **Found during:** manual walkthrough of the Member → My tickets → Edit request flow.
+- **Description:** A Member could open a pending ticket's detail view and click "Edit request", and the edit panel would render on screen correctly (title, description, department, priority fields, Save changes button) — but none of it was interactive. The title/description fields couldn't be typed into, the dropdowns couldn't be changed, and Save changes did nothing on click.
+- **Steps to reproduce (before fix):**
+  1. Log in as a Member with at least one `pending` ticket.
+  2. Open the ticket from "My tickets" (opens the ticket detail modal).
+  3. Click "Edit request".
+  4. Observed: the edit form appears on top of the ticket detail view, but clicking or typing into any of its fields has no effect.
+- **Root cause:** The ticket detail view (`TicketDetailModal`) is a Radix UI `Dialog` (via the shared `Modal` component). Radix Dialogs set `pointer-events: none` on `<body>` while open, and only re-enable pointer events for content rendered inside their own portal. The "Edit request" panel was a hand-rolled `<div className="modal-backdrop">…</div>` written directly in `MemberPage`'s JSX — not inside that Radix portal — so even though it displayed on top visually, it inherited the `pointer-events: none` lock and every control inside it was inert.
+- **Fix:** Replaced the hand-rolled edit-request `<div>` with the same `Modal` component used elsewhere (`components/Modal.jsx`, wrapping Radix's `Dialog`). The edit form now renders through Radix's own portal and dialog stack, so it participates correctly in the pointer-events/focus handling and is fully interactive again.
+- **Status:** Fixed.
+
+---
+
 ## Known limitations (not bugs — deliberate scope decisions for this stage)
 
-These were noted during testing but are **not** being changed right now, either because they are appropriate for a class-project prototype or because they are already flagged as gaps to close in the C#/EF Core rewrite.
+These were noted during testing but are **not** being changed right now, either because they are appropriate for the current stage of the project or because they are already flagged as gaps to close once the planned C#/ASP.NET Core + EF Core port is implemented.
 
 | # | Observation | Why it's not being fixed here |
 |---|---|---|
-| L-1 | Sessions are stored in memory on the API process and are lost on server restart, forcing everyone to log in again. | Expected for a prototype without a persistent session/DB layer. Will be replaced by ASP.NET Core Identity / a real session store in the C# port. |
-| L-2 | Passwords are stored in plaintext in `users.json`. | Same as above — hashing will be added when the user store moves to EF Core + SQL Server. |
+| L-1 | Sessions are stored in memory on the API process and are lost on server restart, forcing everyone to log in again. | No persistent session/DB layer at this stage; see note above. |
+| L-2 | Passwords are stored in plaintext in `users.json`. | No hashing/credential store at this stage; see note above. |
 | L-3 | No pagination on ticket lists. | Not a problem at the current seed-data scale (15 tickets); revisit if/when real usage grows. |
 | L-4 | No email/in-app notification when a ticket's status changes or it's reassigned. | Out of scope for the current schedule; flagged as a possible enhancement, not a defect. |
 

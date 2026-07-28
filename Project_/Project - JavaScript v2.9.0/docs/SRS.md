@@ -2,8 +2,8 @@
 
 ## Internal Support Request Management System
 
-**Document version:** 1.0
-**Status:** Baseline — validated against the working Node/Express + JS prototype in this repository; target implementation stack is C# / ASP.NET Core MVC / Entity Framework Core / SQL Server (see `docs/diagrams/architecture-diagram.svg`).
+**Document version:** 1.1
+**Status:** Baseline — describes the system as actually implemented: a Node.js/Express API with an HTML/CSS/JS client and a React client (`API/`, `UI/`, `UI-React/`). This is the company's standard stack (JavaScript), not a temporary prototype. A future migration to C# / ASP.NET Core MVC / Entity Framework Core / SQL Server is planned separately and is not covered in detail by this document — see `docs/BUGFIX_LOG.md` for that note.
 
 ---
 
@@ -13,7 +13,7 @@
 
 This document specifies the functional and non-functional requirements for the Internal Support Request Management System, a ticketing application that lets employees ("Members") submit internal support requests, lets Admins triage those requests, and lets support Agents work them through to resolution.
 
-It is written to guide the C# / ASP.NET Core MVC / EF Core / SQL Server implementation, and reflects the workflow already validated in the project's working prototype (`API/`, `UI/`).
+It documents the requirements as implemented in the system's JavaScript stack (`API/`, `UI/`, `UI-React/`), which is the system as built, tested, and used.
 
 ### 1.2 Scope
 
@@ -42,17 +42,17 @@ Out of scope (see §1.5 "Assumptions and constraints"): external/customer-facing
 
 ### 1.4 References
 
-- `README.md` — project overview and prototype run instructions.
+- `README.md` — project overview and instructions for running the app.
 - `docs/USER_GUIDE.md` — end-user guide for all three roles.
 - `docs/TEST_CASES.md`, `docs/BUGFIX_LOG.md` — testing evidence and known limitations.
 - `docs/diagrams/use-case-diagram-member.svg`, `use-case-diagram-agent.svg`, `use-case-diagram-admin.svg`, `erd.svg`, `class-diagram.svg`, `architecture-diagram.svg`.
 
 ### 1.5 Assumptions and constraints
 
-- This is a university course/internship assignment, not a production system. Security/scaling requirements are written at a level appropriate to that context (see §4).
+- This is an internal company system, written at a level of rigor appropriate to its current scale (see §4).
 - Self-service account registration is disabled; all accounts are provisioned by an Admin.
 - A ticket has exactly one requester (Member) and at most one assigned Agent at a time.
-- The current repository state is a functional prototype (Node/Express + flat JSON files) used to validate the data model and workflow; it is not the graded deliverable stack. The graded deliverable is the C#/ASP.NET Core MVC/EF Core/SQL Server port described in §5–§7.
+- The current repository (Node/Express + flat JSON files for the API; HTML/CSS/JS and React for the UI) is the implemented system described throughout §5–§7 below, not a stand-in for a different stack.
 
 ---
 
@@ -72,13 +72,13 @@ The system is a standalone internal web application, accessed by employees of a 
 
 ### 2.3 Operating environment
 
-- Server: ASP.NET Core MVC application, hosted on Windows/Linux, backed by SQL Server.
-- Client: any evergreen desktop web browser (Chrome, Edge, Firefox). No mobile-native app.
+- Server: Node.js/Express application, runnable on Windows/Linux/macOS. Data is persisted in flat JSON files (`API/tickets.json`, `API/users.json`) rather than a database at this stage.
+- Client: any evergreen desktop web browser (Chrome, Edge, Firefox). No mobile-native app. Two client implementations exist and talk to the same API: a build-free HTML/CSS/JS client (`UI/`) and a React 19 + Vite client (`UI-React/`).
 
 ### 2.4 Design and implementation constraints
 
-- Must use C#, ASP.NET Core MVC, Entity Framework Core (code-first), and SQL Server, per the assignment brief.
-- Passwords must be hashed (not plaintext) — this is a known gap in the prototype (`docs/BUGFIX_LOG.md`, L-2) that the C# port must close using ASP.NET Core Identity or equivalent.
+- Must use JavaScript across the stack — Node.js/Express for the API, and HTML/CSS/JS (plus a React client) for the UI — per the company's standard coding language.
+- Passwords must eventually be hashed (not plaintext) — this is a known gap in the current implementation (`docs/BUGFIX_LOG.md`, L-2), left as-is for now rather than a requirement this stage fails to meet by design.
 
 ---
 
@@ -104,6 +104,7 @@ Full actor/use-case map, split one diagram per role: `docs/diagrams/use-case-dia
 | UC-14 | Run Auto-Triage *(«extend»s UC-13)* | Admin (triggers), Auto-Triage Engine (executes) |
 | UC-15 | Manage User Accounts | Admin |
 | UC-16 | View Reports & Dashboard | Admin |
+| UC-17 | Sort Ticket List by Date Created | Member, Agent, Admin |
 
 ### Sample fully-dressed use case — UC-07 Claim Ticket
 
@@ -146,6 +147,7 @@ Each requirement is tagged with priority: **M**ust, **S**hould, **C**ould (MoSCo
 | FR-2.5 | A Member shall be able to cancel (delete) a request only while it is `pending`. | M | UC-04 |
 | FR-2.6 | A Member shall not be able to view or modify another Member's requests. | M | UC-04 |
 | FR-2.7 | A Member shall be able to search/filter their own request list by keyword and status. | S | UC-05 |
+| FR-2.8 | A Member shall be able to sort their own request list by date created, in either direction (newest-first or oldest-first). | S | UC-17 |
 
 ### 4.3 Agent capabilities
 
@@ -159,6 +161,7 @@ Each requirement is tagged with priority: **M**ust, **S**hould, **C**ould (MoSCo
 | FR-3.6 | An Agent shall be able to add an internal comment to a ticket, visible to Agents and Admins only (not the requester). | M | UC-12 |
 | FR-3.7 | An Agent shall be able to search/filter the queue and their own work list by keyword, status, and priority. | S | UC-10 |
 | FR-3.8 | An Agent shall not be able to view or act on tickets that have not yet cleared Admin triage (`pending`/`denied`). | M | UC-06 |
+| FR-3.9 | An Agent shall be able to sort the Queue and My Work lists by date created, in either direction (newest-first or oldest-first), independently for each list. | S | UC-17 |
 
 ### 4.4 Admin capabilities
 
@@ -173,10 +176,11 @@ Each requirement is tagged with priority: **M**ust, **S**hould, **C**ould (MoSCo
 | FR-4.7 | The system shall prevent deleting or demoting the last remaining Admin account. | M | UC-15 |
 | FR-4.8 | The system shall prevent an Admin from deleting the account they are currently logged in as. | S | UC-15 |
 | FR-4.9 | Changing a user's password or role shall invalidate that user's existing session(s), forcing re-login. | S | UC-15 |
-| FR-4.10 | An Admin shall be able to view a report of ticket counts by status (pending/accepted/denied/expired) for a selectable time range (today / 7 days / 30 days / all time / custom). | M | UC-16 |
+| FR-4.10 | An Admin shall be able to view a report of ticket counts by status (pending/accepted/denied/expired) for a selectable time range (today / 7 days / 30 days / all time). | M | UC-16 |
 | FR-4.11 | An Admin shall be able to view a status-distribution chart and a daily-volume trend chart for the selected range. | S | UC-16 |
 | FR-4.12 | An Admin shall be able to view per-Agent workload (open vs. closed ticket counts). | S | UC-16 |
 | FR-4.13 | An Admin shall be able to see and act on all tickets regardless of status (full visibility, unlike Member/Agent). | M | UC-13, UC-16 |
+| FR-4.14 | An Admin shall be able to sort the Triage list by date created, in either direction (newest-first or oldest-first); the list defaults to oldest-first so the longest-waiting requests surface first. | S | UC-17 |
 
 ### 4.5 Cross-cutting: history & comments
 
@@ -192,13 +196,13 @@ Each requirement is tagged with priority: **M**ust, **S**hould, **C**ould (MoSCo
 
 | ID | Category | Requirement |
 |---|---|---|
-| NFR-1 | Security | Passwords shall be stored hashed (e.g., ASP.NET Core Identity's PBKDF2/Argon2 hashing), never in plaintext, in the C# implementation. |
+| NFR-1 | Security | Passwords shall be stored hashed, never in plaintext. Currently a known gap (`docs/BUGFIX_LOG.md`, L-2), left as-is for this stage. |
 | NFR-2 | Security | All state-changing endpoints/actions shall require an authenticated session and enforce the role checks in §4.1. |
 | NFR-3 | Usability | Each role shall have a dedicated, uncluttered view showing only the actions relevant to that role (matching the current Member/Agent/Admin/Auth UI split). |
 | NFR-4 | Reliability | A ticket's `history` array must be consistent with its current `Status`/`AssignedTo` at all times — no action may change state without appending a corresponding history entry (FR-5.1). |
-| NFR-5 | Maintainability | Business rules (status transitions, role permissions, Auto-Triage rules) shall live in a service layer, independent of the MVC controllers, so they can be unit-tested without a running web server (see `architecture-diagram.svg`). |
-| NFR-6 | Performance | Ticket list/queue queries shall remain responsive at the assignment's expected data scale (tens to low hundreds of tickets); pagination is not required at this scale but the query layer should not preclude adding it later. |
-| NFR-7 | Portability | The application shall run against SQL Server via EF Core code-first migrations, so the schema can be recreated from source on any grader's machine. |
+| NFR-5 | Maintainability | Business rules (status transitions, role permissions, Auto-Triage rules) shall live in code that is testable independent of route handlers (see `architecture-diagram.svg`). |
+| NFR-6 | Performance | Ticket list/queue queries shall remain responsive at the current data scale (tens to low hundreds of tickets); pagination is not required at this scale but the query layer should not preclude adding it later. |
+| NFR-7 | Portability | The application shall be runnable from source with `npm install && npm start`, requiring no external database server at this stage — data ships with the repo as flat JSON files. |
 
 Items intentionally **not** required at this stage (documented as known limitations, not defects — see `docs/BUGFIX_LOG.md`): email/push notifications, horizontal scaling, multi-factor authentication, SLA timers, audit-log tamper-proofing beyond application-level append-only writes.
 
@@ -206,14 +210,14 @@ Items intentionally **not** required at this stage (documented as known limitati
 
 ## 6. Data Requirements
 
-Full schema: `docs/diagrams/erd.svg`. Summary of entities and key attributes (EF Core code-first target):
+Full schema diagram: `docs/diagrams/erd.svg`. The system currently persists this data as flat JSON (`API/users.json`, `API/tickets.json`); the entities and fields below reflect what's actually stored and read by `API/index.js`.
 
-- **User** — `Username` (PK), `PasswordHash`, `Role` (enum: Admin/Agent/Member), `CreatedAt`, `IsActive`.
-- **Ticket** — `Id` (PK), `Title`, `Description`, `Department`, `Priority` (enum), `Topic`, `Status` (enum), `TriageNote` (nullable), `CreatedByUsername` (FK → User), `AssignedToUsername` (FK → User, nullable), `CreatedAt`, `UpdatedAt`.
-- **Comment** — `Id` (PK), `TicketId` (FK → Ticket), `AuthorUsername` (FK → User), `Text`, `CreatedAt`.
-- **TicketHistory** — `Id` (PK), `TicketId` (FK → Ticket), `ActorUsername` (FK → User), `Action`, `Detail`, `At`.
+- **User** — `username` (unique key), `password` (plaintext at this stage — see `docs/BUGFIX_LOG.md` L-2), `role` (`admin` / `agent` / `member`).
+- **Ticket** — `id`, `title`, `description`, `department`, `priority`, `topic`, `status`, `triageNote` (present when denied), `createdBy` (→ User), `assignedTo` (→ User, nullable), `createdAt`, `comments` (array), `history` (array).
+- **Comment** (nested in `Ticket.comments`) — `id`, `by` (→ User), `text`, `at`.
+- **History entry** (nested in `Ticket.history`) — `at`, `by` (→ User), `role`, `action`, `detail`.
 
-Relationships: one User creates many Tickets; one User is optionally assigned to many Tickets (as Agent); one Ticket has many Comments and many TicketHistory entries; every Comment/TicketHistory entry references exactly one authoring/acting User.
+Relationships: one User creates many Tickets; one User is optionally assigned to many Tickets (as Agent); one Ticket has many Comments and many history entries; every Comment/history entry references exactly one authoring/acting User.
 
 ---
 
@@ -221,19 +225,19 @@ Relationships: one User creates many Tickets; one User is optionally assigned to
 
 ### 7.1 User interfaces
 
-Four role-scoped screens, matching the current prototype's structure and to be reproduced as Razor views in the C# port:
+Four role-scoped screens, implemented twice — once as the build-free HTML/CSS/JS client (`UI/`) and once as the React client (`UI-React/`) — both talking to the same API:
 
 - **Auth** — shared login screen for all roles.
 - **Member** — Submit, My Tickets (with search/filter), dashboard summary.
 - **Agent** — Queue, My Work, reassign/comment controls, workload summary.
-- **Admin** — Overview (triage + Auto-Triage), Reports (charts + workload), User management.
+- **Admin** — Triage (accept/deny + Auto-Triage), Reports (charts + workload), Users (account management).
 
-### 7.2 API / controller interfaces
+### 7.2 API interfaces
 
-Target controllers (per `architecture-diagram.svg`): `AuthController`, `TicketsController`, `UsersController`, `ReportsController`, each enforcing `[Authorize(Roles = "...")]` per action, mirroring the route table already validated in the prototype's `API/index.js` (see `README.md` §5 for the full existing route list, which the C# controllers are expected to reproduce one-for-one).
+The system exposes a single Express route file (`API/index.js`) covering auth, users, tickets, comments, and assignment actions, each enforcing role checks per §4.1. See `README.md` §5 for the full route table.
 
 ---
 
 ## 8. Traceability Note
 
-This SRS was written after (and validated against) a working prototype rather than purely up front, so requirements in §4 are cross-checked against actually-implemented, manually-tested behavior (see `docs/TEST_CASES.md`) rather than being purely aspirational. Any requirement above not yet covered by a passing test case should be added to the test plan before the C# port is considered complete.
+This SRS was written after (and validated against) the working implementation rather than purely up front, so requirements in §4 are cross-checked against actually-implemented, manually-tested behavior (see `docs/TEST_CASES.md`) rather than being purely aspirational. Any requirement above not yet covered by a passing test case should be added to the test plan.
