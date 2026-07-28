@@ -1,9 +1,9 @@
-# Workflow & Roles — Project v2.8.4
+# Workflow & Roles — Project v2.9.0
 
-This document summarizes how the prototype ticketing system works: the end-to-end workflow, how tickets are processed, what each role can do, key API endpoints, how to run the prototype, data files, and known limitations.
+This document summarizes how the ticketing system works: the end-to-end workflow, how tickets are processed, what each role can do, key API endpoints, how to run the app, data files, and known limitations.
 
 ## 1. High-level overview
-- Tech: Node.js/Express API (prototype) + static UI and a React client (`UI-React`).
+- Tech: Node.js/Express API + a static HTML/CSS/JS client (`UI/`) and a React client (`UI-React/`), both talking to the same API. This is the company's standard stack (JavaScript) — a future C#/ASP.NET Core + EF Core + SQL Server port is planned separately and isn't reflected in the details below (see `docs/BUGFIX_LOG.md`).
 - Purpose: Employees submit internal support requests (tickets); Admins triage; Agents work tickets to resolution.
 
 ## 2. Ticket lifecycle (canonical)
@@ -17,6 +17,7 @@ Notes:
 - Agents `claim` an accepted ticket → sets `assignedTo` and `in_progress`.
 - Agents may `release` (back to `accepted`), `reassign`, `resolve`, then `close`.
 - All status and assignment changes are appended to the ticket's `history`; internal discussion uses `comments`.
+- Sorting is client-side only: Member's My Tickets, Agent's Queue and My Work (independently), and Admin's Triage each have their own "newest first / oldest first" sort control over `createdAt`. There is no server-side sort parameter — the API always returns tickets in storage order and each client sorts what it receives.
 
 ## 3. How a ticket is processed (step-by-step)
 1. Member fills the request form → `POST /tickets` → server creates a ticket with `status: "pending"` and records `createdBy` and a `history` entry.
@@ -53,13 +54,14 @@ Notes:
 Server-side role enforcement: implemented via `requireRole(...)` and logic in `API/index.js`.
 
 ## 5. Key API endpoints (summary)
+- `GET /health` — unauthenticated liveness check.
 - `POST /login` — authenticate, returns token.
 - `POST /logout` — invalidate current token.
-- `GET/POST/PATCH/DELETE /users` — admin only (manage accounts).
+- `GET/POST/PATCH/DELETE /users`, `/users/:username` — admin only (manage accounts).
 - `GET /agents` — list agent usernames (admin & agent).
 - `GET /tickets` — role-scoped listing.
 - `POST /tickets` — create ticket (member).
-- `GET /tickets/:id` — view ticket (role-scoped).
+- `GET /tickets/:id` — view a single ticket (role-scoped: members see only their own, agents only support-stage tickets).
 - `PATCH /tickets/:id` — update ticket (role-scoped and field-restricted).
 - `POST /tickets/:id/claim` — agent claims ticket.
 - `POST /tickets/:id/release` — agent releases ticket.
@@ -69,7 +71,7 @@ Server-side role enforcement: implemented via `requireRole(...)` and logic in `A
 
 Client wrapper: see `UI-React/src/lib/api.js` which maps these calls to functions.
 
-## 6. How to run the prototype locally
+## 6. How to run the app locally
 Requirements: Node.js 18+
 
 1. Start API
@@ -87,19 +89,21 @@ API runs by default at `http://localhost:3000`. Data read/written to `API/ticket
 Use seeded demo accounts described in the README or `docs/USER_GUIDE.md`.
 
 ## 7. Data, storage & known limitations
-- Prototype stores data in flat JSON files: `API/tickets.json`, `API/users.json`.
+- Data is stored in flat JSON files: `API/tickets.json`, `API/users.json`.
 - Sessions: in-memory Map (`sessions`) with TTL (~12 hours); no persistence across restarts.
 - Security: plaintext passwords in `users.json` (demo only), no hashed passwords, no CSRF protections, no notifications, no pagination.
-- These are intentionally simple for the prototype; the C# port is expected to replace these with ASP.NET Identity + EF Core + SQL Server.
+- These are documented, deliberate gaps for this stage of the JavaScript implementation — see `docs/BUGFIX_LOG.md` → "Known limitations" for the full list and rationale.
 
 ## 8. Where to look in the repo
 - README: `README.md` (root of v2.8.4).
 - Server: `API/index.js` (core logic, routes, role checks, lifecycle functions).
 - Client API wrapper: `UI-React/src/lib/api.js`.
+- Shared dialog/modal: `UI-React/src/components/Modal.jsx` (Radix UI `Dialog` wrapper used by every modal, including `TicketDetailModal.jsx`).
+- Shared sort control: `UI-React/src/components/SortSelect.jsx`, backed by `sortByCreatedAt()` in `UI-React/src/lib/constants.js`.
 - Member UI: `UI-React/src/pages/member/MemberPage.jsx`.
 - Agent UI: `UI-React/src/pages/agent/AgentPage.jsx`.
 - Admin triage UI: `UI-React/src/pages/admin/TriageTab.jsx`.
-- Docs: `docs/USER_GUIDE.md`, `docs/SRS.md`, and diagrams in `docs/diagrams/`.
+- Docs: `docs/USER_GUIDE.md`, `docs/SRS.md`, `docs/BUGFIX_LOG.md`, and diagrams in `docs/diagrams/`.
 
 ## 9. Recommended next steps
 - Replace flat-file storage with a DB for persistence and concurrency handling.
