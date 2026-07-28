@@ -1,0 +1,109 @@
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ticket-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--card-hex);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+  width: 100%;
+}
+.ticket-row:hover {
+  border-color: var(--primary-hex);
+  box-shadow: 0 2px 10px rgba(19, 27, 46, 0.06);
+}
+
+.ticket-row-main {
+  min-width: 0;
+  flex: 1;
+}
+.ticket-row-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ticket-row-meta {
+  display: flex;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.ticket-row-side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.ticket-row-assignee {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.ticket-row-date {
+  font-size: 12px;
+  color: var(--ink-soft);
+  width: 90px;
+  text-align: right;
+}
+
+.priority-chip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: var(--line-soft);
+  color: var(--ink-soft);
+}
+.priority-urgent {
+  background: var(--st-denied-bg);
+  color: var(--st-denied-fg);
+}
+.priority-high {
+  background: var(--amber-soft);
+  color: var(--amber);
+}
+.priority-mid {
+  background: var(--st-accepted-bg);
+  color: var(--st-accepted-fg);
+}
+.priority-low {
+  background: var(--line-soft);
+  color: var(--ink-soft);
+}
+
+.ticket-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 14px;
+  background: var(--card-hex);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 700px) {
+  .ticket-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ticket-row-side {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

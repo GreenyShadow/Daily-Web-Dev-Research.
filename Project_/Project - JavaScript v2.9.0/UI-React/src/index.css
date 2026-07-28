@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── shadcn/ui theme tokens ──────────────────────────────────────────
+     Same palette as below, expressed as bare HSL triples so Tailwind's
+     hsl(var(--x)) utilities and the shadcn/ui component set (Button,
+     Card, Dialog, Input, Badge, Tabs, Select, DropdownMenu...) pick up
+     Deskline's existing brand colors instead of the shadcn defaults. */
+  --background: 220 33% 96.5%;
+  --foreground: 222.2 41.5% 12.7%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 41.5% 12.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 41.5% 12.7%;
+  --primary: 221.6 67.1% 42.9%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 33% 94.7%;
+  --secondary-foreground: 222.2 41.5% 12.7%;
+  --muted: 220 33% 94.7%;
+  --muted-foreground: 224.2 20.4% 36.5%;
+  --accent: 221.1 70.4% 94.7%;
+  --accent-foreground: 222.4 72.1% 32.4%;
+  --destructive: 3.2 71.3% 41%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 221.5 28.9% 91.2%;
+  --input: 221.5 28.9% 91.2%;
+  --ring: 221.6 67.1% 42.9%;
+  --radius: 0.625rem;
+
+  /* Ticket-status colors as bare HSL triples for Tailwind's status-* utilities
+     (see tailwind.config.js). Suffixed "-hsl" so they don't collide with the
+     hex --st-*-fg/-bg custom properties the original inline-style components
+     already use below. */
+  --st-pending-fg-hsl: 38.6 100% 30.2%;
+  --st-pending-bg-hsl: 40.5 90.2% 92%;
+  --st-accepted-fg-hsl: 211.5 70.6% 38.6%;
+  --st-accepted-bg-hsl: 211.3 79.3% 94.3%;
+  --st-progress-fg-hsl: 267.5 48% 44.5%;
+  --st-progress-bg-hsl: 271.4 72.4% 94.3%;
+  --st-resolved-fg-hsl: 151.3 62.7% 29.4%;
+  --st-resolved-bg-hsl: 144 52.6% 92.5%;
+  --st-closed-fg-hsl: 223.3 17.3% 40.8%;
+  --st-closed-bg-hsl: 222 31.3% 93.7%;
+  --st-denied-fg-hsl: 3.2 71.3% 41%;
+  --st-denied-bg-hsl: 5.2 74.2% 93.9%;
+}
+
+:root {
+  /* Color */
+  --ink: #131b2e;
+  --ink-soft: #4a5470;
+  --paper: #f3f5f9;
+  --card-hex: #ffffff;
+  --line: #e2e6ef;
+  --line-soft: #edf0f6;
+  --primary-hex: #2451b7;
+  --primary-dark: #173a8e;
+  --primary-soft: #e8eefb;
+  --amber: #b3720a;
+  --amber-soft: #fbf0dc;
+
+  /* Status */
+  --st-pending-fg: #9a6300;
+  --st-pending-bg: #fdf1d8;
+  --st-accepted-fg: #1d5fa8;
+  --st-accepted-bg: #e5f0fc;
+  --st-progress-fg: #6d3ba8;
+  --st-progress-bg: #f1e6fb;
+  --st-resolved-fg: #1c7a4d;
+  --st-resolved-bg: #e2f6ea;
+  --st-closed-fg: #56607a;
+  --st-closed-bg: #eaedf4;
+  --st-denied-fg: #b3261e;
+  --st-denied-bg: #fbe6e4;
+
+  /* Type */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow-card: 0 1px 2px rgba(19, 27, 46, 0.04), 0 1px 12px rgba(19, 27, 46, 0.04);
+  --sidebar-w: 232px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background: var(--primary-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary-hex);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, transform 0.06s ease;
+  white-space: nowrap;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn-primary {
+  background: var(--primary-hex);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+.btn-ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: var(--line-soft);
+}
+.btn-danger {
+  background: transparent;
+  border-color: #f0c9c6;
+  color: var(--st-denied-fg);
+}
+.btn-danger:hover:not(:disabled) {
+  background: var(--st-denied-bg);
+}
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12.5px;
+}
+
+/* ── Cards / surfaces ────────────────────────────────────────────────── */
+.card {
+  background: var(--card-hex);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+/* ── Small hand-rolled dialogs (Deny, Edit user, Edit request) ──────────
+   These predate the shadcn/ui Dialog migration and never got their own
+   stylesheet, which left them with no backdrop dimming and no solid
+   background — the panel rendered inline/transparent behind whatever
+   page content was underneath it. Restyled here as a fixed, centered,
+   fully opaque card so it matches the rest of the app's modals. */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--card-hex);
+  opacity: 1;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.25);
+}
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.modal-head h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+.modal-close:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+.modal-body {
+  padding: 16px 18px;
+}
+
+.field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 9px 11px;
+  font-family: inherit;
+  font-size: 14px;
+  background: #fff;
+  color: var(--ink);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--primary-hex);
+}
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ── Status badge ────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 100px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* scrollbar tidy-up */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d3d9e6;
+  border-radius: 10px;
+  border: 2px solid var(--paper);
+}

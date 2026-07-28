@@ -1,0 +1,60 @@
+<svg viewBox="0 0 950 560" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+<rect x="0" y="0" width="950" height="560" fill="#ffffff"/>
+<text x="475" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1f2e">Use Case Diagram — Member</text>
+<text x="475" y="56" text-anchor="middle" font-size="12.5" fill="#5e6680">Internal Support Request Management System</text>
+
+<!-- System boundary -->
+<rect x="250" y="90" width="650" height="345" rx="10" fill="#fafbfc" stroke="#000000" stroke-width="1.5"/>
+<text x="575" y="116" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1f2e">Internal Support Request Management System</text>
+
+<!-- Association lines -->
+<g stroke="#000000" stroke-width="1.3" fill="none">
+<line x1="140" y1="270" x2="355" y2="170"/>
+<line x1="140" y1="270" x2="595" y2="170"/>
+<line x1="140" y1="270" x2="355" y2="270"/>
+<line x1="140" y1="270" x2="595" y2="270"/>
+<line x1="140" y1="270" x2="475" y2="380"/>
+</g>
+
+<!-- Use cases -->
+<g text-anchor="middle">
+<ellipse cx="460" cy="170" rx="105" ry="28" fill="#eef1f8" stroke="#000000" stroke-width="1.4"/>
+<text x="460" y="175" font-size="13" font-weight="600" fill="#1a1f2e">Login</text>
+<text x="460" y="206" font-size="9.5" font-style="italic" fill="#8a92a8">(shared with Agent, Admin)</text>
+
+<ellipse cx="700" cy="170" rx="105" ry="28" fill="#eef1f8" stroke="#000000" stroke-width="1.4"/>
+<text x="700" y="175" font-size="13" font-weight="600" fill="#1a1f2e">Logout</text>
+<text x="700" y="206" font-size="9.5" font-style="italic" fill="#8a92a8">(shared with Agent, Admin)</text>
+
+<ellipse cx="460" cy="270" rx="105" ry="28" fill="#e9eefb" stroke="#000000" stroke-width="1.4"/>
+<text x="460" y="275" font-size="12.5" font-weight="600" fill="#1a1f2e">Submit New Request</text>
+
+<ellipse cx="700" cy="270" rx="105" ry="40" fill="#e9eefb" stroke="#000000" stroke-width="1.4"/>
+<text x="700" y="263" font-size="12.5" font-weight="600" fill="#1a1f2e">Manage My Request</text>
+<text x="700" y="280" font-size="9.5" fill="#5e6680">(edit / cancel</text>
+<text x="700" y="293" font-size="9.5" fill="#5e6680">while pending)</text>
+
+<ellipse cx="580" cy="380" rx="115" ry="34" fill="#e9eefb" stroke="#000000" stroke-width="1.4"/>
+<text x="580" y="376" font-size="12.5" font-weight="600" fill="#1a1f2e">Search &amp; Filter</text>
+<text x="580" y="393" font-size="12.5" font-weight="600" fill="#1a1f2e">My Requests</text>
+</g>
+
+<!-- Actor -->
+<g stroke="#000000" stroke-width="2" fill="none">
+<circle cx="110" cy="230" r="15" fill="#ffffff"/>
+<line x1="110" y1="245" x2="110" y2="275"/>
+<line x1="91" y1="258" x2="129" y2="258"/>
+<line x1="110" y1="275" x2="95" y2="305"/>
+<line x1="110" y1="275" x2="125" y2="305"/>
+</g>
+<text x="110" y="329" text-anchor="middle" font-size="13.5" font-weight="700" fill="#4f6bb0">Member</text>
+
+<!-- Legend -->
+<rect x="60" y="465" width="830" height="70" rx="10" fill="#fafbfc" stroke="#d8dce6" stroke-width="1"/>
+<text x="80" y="488" font-size="12" font-weight="700" fill="#1a1f2e">Legend</text>
+<ellipse cx="115" cy="505" rx="14" ry="9" fill="#eef1f8" stroke="#000000" stroke-width="1.2"/>
+<text x="138" y="509" font-size="11.5" fill="#3a4256">Shared across all roles</text>
+<ellipse cx="330" cy="505" rx="14" ry="9" fill="#e9eefb" stroke="#000000" stroke-width="1.2"/>
+<text x="353" y="509" font-size="11.5" fill="#3a4256">Member-only</text>
+<text x="80" y="527" font-size="11" fill="#3a4256">All lines use a single black stroke. See use-case-diagram-agent.svg and use-case-diagram-admin.svg for the Agent and Admin views.</text>
+</svg>

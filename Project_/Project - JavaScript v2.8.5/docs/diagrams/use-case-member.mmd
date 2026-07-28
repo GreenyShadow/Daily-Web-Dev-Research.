@@ -1,0 +1,15 @@
+flowchart LR
+  Member[Member]
+  Login((Login))
+  Submit((Submit Ticket))
+  View((View Own Tickets))
+  Edit((Edit Pending Ticket))
+  Cancel((Cancel Pending Ticket))
+  Logout((Logout))
+
+  Member --> Login
+  Member --> Submit
+  Member --> View
+  Member --> Edit
+  Member --> Cancel
+  Member --> Logout

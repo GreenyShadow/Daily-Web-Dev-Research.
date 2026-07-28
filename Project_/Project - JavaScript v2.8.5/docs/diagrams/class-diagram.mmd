@@ -1,0 +1,52 @@
+classDiagram
+  class Ticket {
+    +string id
+    +string name
+    +string department
+    +string priority
+    +string topic
+    +string title
+    +string description
+    +datetime createdAt
+    +string createdBy
+    +string status
+    +string assignedTo
+    +string triageNote
+    +Comment[] comments
+    +HistoryEntry[] history
+  }
+
+  class Comment {
+    +string id
+    +string by
+    +string role
+    +datetime at
+    +string text
+  }
+
+  class User {
+    +string username
+    +string password
+    +string role
+  }
+
+  class ApiController {
+    +listTickets()
+    +getTicket()
+    +createTicket()
+    +updateTicket()
+    +claimTicket()
+    +releaseTicket()
+    +reassignTicket()
+    +addComment()
+    +listUsers()
+    +createUser()
+    +updateUser()
+    +deleteUser()
+  }
+
+  Ticket "1" -- "*" Comment : has
+  User "1" -- "*" Ticket : creates
+  User "1" -- "*" Comment : writes
+  ApiController ..> Ticket
+  ApiController ..> User

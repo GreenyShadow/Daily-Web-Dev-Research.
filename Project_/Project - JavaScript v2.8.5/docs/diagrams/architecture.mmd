@@ -1,0 +1,26 @@
+flowchart LR
+  subgraph Clients
+    Member[Member UI]
+    Agent[Agent UI]
+    Admin[Admin UI]
+  end
+
+  Frontend[UI-React App]
+  API[Express Ticket API]
+  Tickets[tickets.json]
+  Users[users.json]
+  Sessions[In-memory sessions]
+
+  Member -->|interacts| Frontend
+  Agent -->|interacts| Frontend
+  Admin -->|interacts| Frontend
+  Frontend -->|REST| API
+  API -->|read/write| Tickets
+  API -->|read/write| Users
+  API -->|issues tokens, validates| Sessions
+
+  style Frontend fill:#f9f,stroke:#333,stroke-width:1px
+  style API fill:#bbf,stroke:#333,stroke-width:1px
+  style Tickets fill:#ffd,stroke:#333,stroke-width:1px
+  style Users fill:#ffd,stroke:#333,stroke-width:1px
+  style Sessions fill:#efe,stroke:#333,stroke-width:1px

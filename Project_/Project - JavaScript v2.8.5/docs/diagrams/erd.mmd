@@ -1,0 +1,34 @@
+erDiagram
+  TICKET {
+    string id PK
+    string name
+    string department
+    string priority
+    string topic
+    string title
+    string description
+    datetime createdAt
+    string createdBy FK
+    string status
+    string assignedTo FK
+    text triageNote
+  }
+
+  USER {
+    string username PK
+    string password
+    string role
+  }
+
+  COMMENT {
+    string id PK
+    string ticketId FK
+    string by
+    string role
+    datetime at
+    text text
+  }
+
+  USER ||--o{ TICKET : creates
+  USER ||--o{ COMMENT : writes
+  TICKET ||--o{ COMMENT : has

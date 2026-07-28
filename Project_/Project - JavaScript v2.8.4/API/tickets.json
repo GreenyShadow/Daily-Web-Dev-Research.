@@ -686,5 +686,237 @@
       }
     ],
     "triageNote": "Manually denied: duplicate request, see TCK00003."
+  },
+  {
+    "id": "oA0A9RP4rd0J",
+    "name": "Member",
+    "department": "Design",
+    "priority": "Low",
+    "topic": "",
+    "title": "Send this ticket",
+    "description": "Test ting!",
+    "createdAt": "2026-07-23T01:30:42.976Z",
+    "createdBy": "Member",
+    "status": "closed",
+    "assignedTo": "Agent",
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-23T01:30:42.976Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-23T01:31:02.576Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "pending → accepted"
+      },
+      {
+        "at": "2026-07-23T01:31:23.496Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      },
+      {
+        "at": "2026-07-23T01:31:43.654Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "released",
+        "detail": "Released back to the queue"
+      },
+      {
+        "at": "2026-07-23T01:32:07.656Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Priya"
+      },
+      {
+        "at": "2026-07-23T01:32:17.387Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "reassigned",
+        "detail": "Priya → Agent"
+      },
+      {
+        "at": "2026-07-23T01:32:32.202Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      },
+      {
+        "at": "2026-07-23T01:32:38.518Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "resolved → closed"
+      }
+    ]
+  },
+  {
+    "id": "Fe8dnX1djWQV",
+    "name": "Member",
+    "department": "Design",
+    "priority": "High",
+    "topic": "This is just optional, in case there is any specific topic",
+    "title": "This is mandatory, you would need to write something here before sending the ticket",
+    "description": "This is also optional, as sometimes the details are inside the Title already.",
+    "createdAt": "2026-07-23T01:54:36.182Z",
+    "createdBy": "Member",
+    "status": "closed",
+    "assignedTo": "Agent",
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-23T01:54:36.182Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-23T01:55:09.051Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "pending → accepted"
+      },
+      {
+        "at": "2026-07-23T01:55:26.814Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      },
+      {
+        "at": "2026-07-23T01:55:35.589Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "released",
+        "detail": "Released back to the queue"
+      },
+      {
+        "at": "2026-07-23T01:55:51.257Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Priya"
+      },
+      {
+        "at": "2026-07-23T01:56:01.296Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "reassigned",
+        "detail": "Priya → Agent"
+      },
+      {
+        "at": "2026-07-23T01:56:17.083Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      },
+      {
+        "at": "2026-07-23T01:56:18.612Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "resolved → closed"
+      }
+    ]
+  },
+  {
+    "id": "gKWFdHUYUeZp",
+    "name": "Member",
+    "department": "Security",
+    "priority": "High",
+    "topic": "",
+    "title": "Job",
+    "description": "THis is a Job",
+    "createdAt": "2026-07-23T02:24:21.061Z",
+    "createdBy": "Member",
+    "status": "closed",
+    "assignedTo": "Priya",
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-23T02:24:21.061Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      },
+      {
+        "at": "2026-07-23T02:24:30.311Z",
+        "by": "Admin",
+        "role": "admin",
+        "action": "status_change",
+        "detail": "pending → accepted"
+      },
+      {
+        "at": "2026-07-23T02:24:40.317Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Agent"
+      },
+      {
+        "at": "2026-07-23T02:24:50.399Z",
+        "by": "Agent",
+        "role": "agent",
+        "action": "released",
+        "detail": "Released back to the queue"
+      },
+      {
+        "at": "2026-07-23T02:25:14.663Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "claimed",
+        "detail": "Claimed by Priya"
+      },
+      {
+        "at": "2026-07-23T02:25:26.236Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "in_progress → resolved"
+      },
+      {
+        "at": "2026-07-23T02:25:29.584Z",
+        "by": "Priya",
+        "role": "agent",
+        "action": "status_change",
+        "detail": "resolved → closed"
+      }
+    ]
+  },
+  {
+    "id": "oTyKTRX9ePT9",
+    "name": "Member",
+    "department": "Design",
+    "priority": "Low",
+    "topic": "",
+    "title": "Tes",
+    "description": "",
+    "createdAt": "2026-07-28T02:37:31.708Z",
+    "createdBy": "Member",
+    "status": "pending",
+    "assignedTo": null,
+    "comments": [],
+    "history": [
+      {
+        "at": "2026-07-28T02:37:31.708Z",
+        "by": "Member",
+        "role": "member",
+        "action": "created",
+        "detail": "Ticket submitted"
+      }
+    ]
   }
 ]

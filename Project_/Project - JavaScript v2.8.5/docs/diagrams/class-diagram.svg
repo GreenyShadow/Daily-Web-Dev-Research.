@@ -1,0 +1,146 @@
+<svg viewBox="0 0 1150 760" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <rect x="0" y="0" width="1150" height="760" fill="#ffffff"/>
+  <text x="575" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1f2e">Class Diagram</text>
+  <text x="575" y="56" text-anchor="middle" font-size="13" fill="#5e6680">C# / EF Core entity model</text>
+
+  <defs>
+    <marker id="c-one" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3a4256"/>
+    </marker>
+  </defs>
+
+  <!-- ===== User class ===== -->
+  <g>
+    <rect x="40" y="110" width="250" height="230" fill="#eef1f8" stroke="#1a1f2e" stroke-width="1.5"/>
+    <rect x="40" y="110" width="250" height="28" fill="#3a4256"/>
+    <text x="165" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">User</text>
+    <line x1="40" y1="138" x2="290" y2="138" stroke="#1a1f2e"/>
+    <text x="52" y="156" font-size="11.5" fill="#1a1f2e">- Username : string</text>
+    <text x="52" y="174" font-size="11.5" fill="#1a1f2e">- PasswordHash : string</text>
+    <text x="52" y="192" font-size="11.5" fill="#1a1f2e">- Role : UserRole</text>
+    <text x="52" y="210" font-size="11.5" fill="#1a1f2e">- CreatedAt : DateTime</text>
+    <text x="52" y="228" font-size="11.5" fill="#1a1f2e">- IsActive : bool</text>
+    <line x1="40" y1="238" x2="290" y2="238" stroke="#1a1f2e"/>
+    <text x="52" y="256" font-size="11.5" fill="#1a1f2e">+ VerifyPassword(pw) : bool</text>
+    <text x="52" y="274" font-size="11.5" fill="#1a1f2e">+ CreatedTickets : List&lt;Ticket&gt;</text>
+    <text x="52" y="292" font-size="11.5" fill="#1a1f2e">+ AssignedTickets : List&lt;Ticket&gt;</text>
+    <text x="52" y="310" font-size="11.5" fill="#1a1f2e">+ Comments : List&lt;Comment&gt;</text>
+    <text x="52" y="328" font-size="11.5" fill="#1a1f2e">+ HistoryEntries : List&lt;TicketHistory&gt;</text>
+  </g>
+
+  <!-- ===== UserRole enum ===== -->
+  <g>
+    <rect x="40" y="380" width="160" height="100" fill="#f6f4fb" stroke="#1a1f2e" stroke-width="1.5"/>
+    <rect x="40" y="380" width="160" height="26" fill="#6a5aa3"/>
+    <text x="120" y="398" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">«enum» UserRole</text>
+    <line x1="40" y1="406" x2="200" y2="406" stroke="#1a1f2e"/>
+    <text x="52" y="424" font-size="11.5" fill="#1a1f2e">Admin</text>
+    <text x="52" y="442" font-size="11.5" fill="#1a1f2e">Agent</text>
+    <text x="52" y="460" font-size="11.5" fill="#1a1f2e">Member</text>
+  </g>
+
+  <!-- ===== Ticket class ===== -->
+  <g>
+    <rect x="420" y="90" width="280" height="360" fill="#e9eefb" stroke="#1a1f2e" stroke-width="1.5"/>
+    <rect x="420" y="90" width="280" height="28" fill="#3a4256"/>
+    <text x="560" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Ticket</text>
+    <line x1="420" y1="118" x2="700" y2="118" stroke="#1a1f2e"/>
+    <text x="432" y="136" font-size="11.5" fill="#1a1f2e">- Id : string</text>
+    <text x="432" y="154" font-size="11.5" fill="#1a1f2e">- Title : string</text>
+    <text x="432" y="172" font-size="11.5" fill="#1a1f2e">- Description : string</text>
+    <text x="432" y="190" font-size="11.5" fill="#1a1f2e">- Department : string</text>
+    <text x="432" y="208" font-size="11.5" fill="#1a1f2e">- Priority : TicketPriority</text>
+    <text x="432" y="226" font-size="11.5" fill="#1a1f2e">- Topic : string</text>
+    <text x="432" y="244" font-size="11.5" fill="#1a1f2e">- Status : TicketStatus</text>
+    <text x="432" y="262" font-size="11.5" fill="#1a1f2e">- TriageNote : string?</text>
+    <text x="432" y="280" font-size="11.5" fill="#1a1f2e">- CreatedByUsername : string</text>
+    <text x="432" y="298" font-size="11.5" fill="#1a1f2e">- AssignedToUsername : string?</text>
+    <text x="432" y="316" font-size="11.5" fill="#1a1f2e">- CreatedAt / UpdatedAt : DateTime</text>
+    <line x1="420" y1="326" x2="700" y2="326" stroke="#1a1f2e"/>
+    <text x="432" y="344" font-size="11.5" fill="#1a1f2e">+ Accept() / Deny(reason)</text>
+    <text x="432" y="362" font-size="11.5" fill="#1a1f2e">+ Claim(agent) / Release()</text>
+    <text x="432" y="380" font-size="11.5" fill="#1a1f2e">+ Reassign(agent)</text>
+    <text x="432" y="398" font-size="11.5" fill="#1a1f2e">+ Resolve() / Close()</text>
+    <text x="432" y="416" font-size="11.5" fill="#1a1f2e">+ Comments : List&lt;Comment&gt;</text>
+    <text x="432" y="434" font-size="11.5" fill="#1a1f2e">+ History : List&lt;TicketHistory&gt;</text>
+  </g>
+
+  <!-- ===== TicketStatus enum ===== -->
+  <g>
+    <rect x="420" y="480" width="180" height="160" fill="#fbe9ec" stroke="#1a1f2e" stroke-width="1.5"/>
+    <rect x="420" y="480" width="180" height="26" fill="#b0495d"/>
+    <text x="510" y="498" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">«enum» TicketStatus</text>
+    <line x1="420" y1="506" x2="600" y2="506" stroke="#1a1f2e"/>
+    <text x="432" y="524" font-size="11.5" fill="#1a1f2e">Pending</text>
+    <text x="432" y="542" font-size="11.5" fill="#1a1f2e">Accepted</text>
+    <text x="432" y="560" font-size="11.5" fill="#1a1f2e">InProgress</text>
+    <text x="432" y="578" font-size="11.5" fill="#1a1f2e">Resolved</text>
+    <text x="432" y="596" font-size="11.5" fill="#1a1f2e">Closed</text>
+    <text x="432" y="614" font-size="11.5" fill="#1a1f2e">Denied</text>
+  </g>
+
+  <!-- ===== TicketPriority enum ===== -->
+  <g>
+    <rect x="630" y="480" width="180" height="120" fill="#eef7f0" stroke="#1a1f2e" stroke-width="1.5"/>
+    <rect x="630" y="480" width="180" height="26" fill="#3fae74"/>
+    <text x="720" y="498" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">«enum» TicketPriority</text>
+    <line x1="630" y1="506" x2="810" y2="506" stroke="#1a1f2e"/>
+    <text x="642" y="524" font-size="11.5" fill="#1a1f2e">Low</text>
+    <text x="642" y="542" font-size="11.5" fill="#1a1f2e">Medium</text>
+    <text x="642" y="560" font-size="11.5" fill="#1a1f2e">High</text>
+    <text x="642" y="578" font-size="11.5" fill="#1a1f2e">Urgent</text>
+  </g>
+
+  <!-- ===== Comment class ===== -->
+  <g>
+    <rect x="850" y="90" width="260" height="160" fill="#e5f3ec" stroke="#1a1f2e" stroke-width="1.5"/>
+    <rect x="850" y="90" width="260" height="28" fill="#3a4256"/>
+    <text x="980" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Comment</text>
+    <line x1="850" y1="118" x2="1110" y2="118" stroke="#1a1f2e"/>
+    <text x="862" y="136" font-size="11.5" fill="#1a1f2e">- Id : int</text>
+    <text x="862" y="154" font-size="11.5" fill="#1a1f2e">- TicketId : string</text>
+    <text x="862" y="172" font-size="11.5" fill="#1a1f2e">- AuthorUsername : string</text>
+    <text x="862" y="190" font-size="11.5" fill="#1a1f2e">- Text : string</text>
+    <text x="862" y="208" font-size="11.5" fill="#1a1f2e">- CreatedAt : DateTime</text>
+    <line x1="850" y1="218" x2="1110" y2="218" stroke="#1a1f2e"/>
+    <text x="862" y="236" font-size="11.5" fill="#1a1f2e">+ Ticket : Ticket</text>
+  </g>
+
+  <!-- ===== TicketHistory class ===== -->
+  <g>
+    <rect x="850" y="290" width="260" height="180" fill="#fbe9ec" stroke="#1a1f2e" stroke-width="1.5"/>
+    <rect x="850" y="290" width="260" height="28" fill="#3a4256"/>
+    <text x="980" y="310" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">TicketHistory</text>
+    <line x1="850" y1="318" x2="1110" y2="318" stroke="#1a1f2e"/>
+    <text x="862" y="336" font-size="11.5" fill="#1a1f2e">- Id : int</text>
+    <text x="862" y="354" font-size="11.5" fill="#1a1f2e">- TicketId : string</text>
+    <text x="862" y="372" font-size="11.5" fill="#1a1f2e">- ActorUsername : string</text>
+    <text x="862" y="390" font-size="11.5" fill="#1a1f2e">- Action : string</text>
+    <text x="862" y="408" font-size="11.5" fill="#1a1f2e">- Detail : string</text>
+    <text x="862" y="426" font-size="11.5" fill="#1a1f2e">- At : DateTime</text>
+    <line x1="850" y1="436" x2="1110" y2="436" stroke="#1a1f2e"/>
+    <text x="862" y="454" font-size="11.5" fill="#1a1f2e">+ Ticket : Ticket</text>
+  </g>
+
+  <!-- ===== Relationship lines ===== -->
+  <line x1="290" y1="200" x2="416" y2="200" stroke="#1a1f2e" stroke-width="1.4" marker-end="url(#c-one)"/>
+  <text x="330" y="190" font-size="10.5" fill="#3a4256">1..*</text>
+
+  <line x1="200" y1="380" x2="200" y2="342" stroke="#1a1f2e" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#c-one)"/>
+  <text x="205" y="365" font-size="10.5" fill="#3a4256">«uses»</text>
+
+  <line x1="510" y1="480" x2="530" y2="450" stroke="#1a1f2e" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#c-one)"/>
+  <line x1="700" y1="220" x2="850" y2="180" stroke="#1a1f2e" stroke-width="1.4" marker-end="url(#c-one)"/>
+  <text x="750" y="190" font-size="10.5" fill="#3a4256">1..*</text>
+
+  <line x1="700" y1="380" x2="850" y2="380" stroke="#1a1f2e" stroke-width="1.4" marker-end="url(#c-one)"/>
+  <text x="755" y="370" font-size="10.5" fill="#3a4256">1..*</text>
+
+  <path d="M 290 300 C 600 480, 800 200, 850 154" fill="none" stroke="#8d96ad" stroke-width="1.2" stroke-dasharray="2 4" marker-end="url(#c-one)"/>
+  <path d="M 290 320 C 650 560, 800 400, 850 380" fill="none" stroke="#8d96ad" stroke-width="1.2" stroke-dasharray="2 4" marker-end="url(#c-one)"/>
+
+  <!-- ===== Legend ===== -->
+  <rect x="40" y="680" width="1070" height="65" fill="#fafbfc" stroke="#d8dce6" stroke-width="1"/>
+  <text x="55" y="702" font-size="12.5" font-weight="700" fill="#1a1f2e">Legend</text>
+  <text x="55" y="722" font-size="11.5" fill="#3a4256">Solid arrow = direct association/foreign key · Dashed arrow = enum type used by a property or a cross-entity author/actor reference</text>
+</svg>

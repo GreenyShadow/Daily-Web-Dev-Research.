@@ -1,0 +1,139 @@
+.td-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.td-title {
+  font-size: 19px;
+}
+
+.td-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin: 16px 0;
+}
+.td-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.td-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.td-value {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.td-section {
+  margin-top: 20px;
+}
+.td-description {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.td-hint {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.td-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.td-history {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.td-history li {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+}
+.td-history-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary-hex);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.td-history-line {
+  color: var(--ink);
+}
+.td-history-detail {
+  color: var(--ink-soft);
+  margin-top: 1px;
+}
+.td-history-time {
+  color: var(--ink-soft);
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.td-comments {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.td-comment {
+  background: var(--paper);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+}
+.td-comment-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  font-size: 12.5px;
+}
+
+.td-comment-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+.td-comment-form textarea {
+  flex: 1;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 13.5px;
+  resize: vertical;
+}
+
+@media (max-width: 560px) {
+  .td-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
