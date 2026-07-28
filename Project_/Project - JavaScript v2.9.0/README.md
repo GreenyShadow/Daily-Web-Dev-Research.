@@ -2,7 +2,7 @@
 
 A ticketing system that lets employees submit internal support requests, lets admins triage them, and lets support agents work them through to resolution.
 
-> **Note on tech stack:** this repository currently contains a **working functional prototype** built with Node.js/Express (API) and plain HTML/CSS/JavaScript (UI), used to validate the workflow and data model. The assignment's required stack is **C# / ASP.NET Core MVC / Entity Framework Core / SQL Server** — the C# port is tracked separately and will reuse the same roles, ticket lifecycle, and data shapes documented here.
+> **Note on tech stack:** the assignment's required stack was **C# / ASP.NET Core MVC / Entity Framework Core / SQL Server**. However, the company's coding language is **JavaScript**, so the implemented version follows the company's language instead: **Node.js/Express** for the API and **plain HTML/CSS/JavaScript** (plus a React client) for the UI. This is the system as it will be used and maintained going forward — not a temporary prototype awaiting a C# port.
 
 ---
 
@@ -10,12 +10,12 @@ A ticketing system that lets employees submit internal support requests, lets ad
 
 ```
 Project/
-├── API/                    # Node.js/Express backend (prototype)
+├── API/                    # Node.js/Express backend
 │   ├── index.js            # All routes: auth, users, tickets, comments, assignment
 │   ├── users.json          # Flat-file user store (username, password, role)
 │   ├── tickets.json        # Flat-file ticket store
 │   └── package.json
-├── UI/                     # Static front end, one folder per role (original prototype)
+├── UI/                     # Static front end, one folder per role (original client)
 │   ├── Auth/                # Login screen (shared entry point for all roles)
 │   ├── Member/               # Submit requests, view own tickets
 │   ├── Agent/                # Claim/release/reassign, work the queue
@@ -51,7 +51,7 @@ pending → accepted → in_progress → resolved → closed
 - An Agent can move a claimed ticket to `resolved`, and later to `closed`.
 - Every status change and assignment change is recorded in the ticket's `history` array; agent/admin discussion happens in `comments`.
 
-## 4. Running the prototype locally
+## 4. Running the app locally
 
 ### Requirements
 - Node.js 18+
@@ -75,7 +75,7 @@ pending → accepted → in_progress → resolved → closed
    - `Member` / `Demo` — member
 
 ### Resetting demo data
-`tickets.json` and `users.json` are plain JSON files — edit them directly, or delete their contents (`[]`) and restart the API to start from a clean slate. There is no database migration step in the prototype.
+`tickets.json` and `users.json` are plain JSON files — edit them directly, or delete their contents (`[]`) and restart the API to start from a clean slate. There is no database migration step in this version.
 
 ## 5. API summary
 
@@ -95,13 +95,13 @@ All routes except `/health` and `/login` require an `Authorization: Bearer <toke
 
 ## 6. Known limitations
 
-See `docs/BUGFIX_LOG.md` → "Known limitations" for a list of things intentionally left as-is in the prototype (in-memory sessions, plaintext passwords, no pagination, no notifications) — these are expected to be addressed properly once the project moves to the ASP.NET Core Identity + EF Core stack.
+See `docs/BUGFIX_LOG.md` → "Known limitations" for a list of things intentionally left as-is for now (in-memory sessions, plaintext passwords, no pagination, no notifications) — these are candidates for hardening in a future iteration of the JavaScript stack.
 
 ## 7. Related docs
 
 - `docs/SRS.md` — Software Requirements Specification (use cases, functional/non-functional requirements, data requirements).
 - `docs/diagrams/use-case-diagram-member.svg`, `use-case-diagram-agent.svg`, `use-case-diagram-admin.svg` — actors and use cases referenced by the SRS, split one diagram per role.
-- `docs/diagrams/erd.svg`, `class-diagram.svg`, `architecture-diagram.svg` — target design for the C# port.
+- `docs/diagrams/erd.svg`, `class-diagram.svg`, `architecture-diagram.svg` — data model and architecture of the implemented system.
 - `docs/BUGFIX_LOG.md` — issues found and fixed during testing, plus known limitations.
 - `docs/TEST_CASES.md` — manual test cases and results.
 - `docs/USER_GUIDE.md` — how to use the system as a Member, Agent, or Admin.
